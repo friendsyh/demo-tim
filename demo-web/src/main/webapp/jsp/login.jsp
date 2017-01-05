@@ -14,7 +14,7 @@
 		</script>
 	</head>
 	<body>
-		<form action="aaa" method="post">
+		<form action="/login" method="post">
 			<table align="center" border="0">
 				<tr align="center">
 					<td>
@@ -38,7 +38,7 @@
 						验证码：
 						<input type="text" name="certCode" />
 						<img src="makeCertPic.jsp" id="code" onclick="reloadcode()"
-							style="cursor: pointer;" alt="看不清楚,换一张">
+                             style="cursor: pointer;" alt="看不清楚,换一张">
 					</td>
 				</tr>
 				<tr align="left">

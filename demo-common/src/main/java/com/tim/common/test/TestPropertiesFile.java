@@ -19,7 +19,8 @@ public class TestPropertiesFile {
 		
 		/** 非常重要：注意这个默认路径是项目的根目录 ,这个项目里面就是D:/AliDrive/project/DemoTim， 项目的目录
 		 *  */
-		File file = new File("src/main/java/test/userFile.properties");
+		File file = new File("demo-common/src/main/java/com/tim/common/test/userFile.properties");
+        System.out.println("file的绝对路径" + file.getAbsolutePath());
 		if(!file.exists()) {
 			file.createNewFile();
 			System.out.println("文件创立成功");
