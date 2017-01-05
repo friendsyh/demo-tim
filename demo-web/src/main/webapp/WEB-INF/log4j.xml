@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="PROJECT" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="/home/admin/demo-tim/logs/demo-tim.log" />
+		<param name="append" value="false" />
+		<param name="encoding" value="UTF-8" />
+		<param name="threshold" value="INFO" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p] |%m%n" />
+		</layout>
+	</appender>
+
+    <appender name="Controller_Appender" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="/home/admin/demo-tim/logs/controller.log" />
+        <param name="append" value="false" />
+        <param name="encoding" value="UTF-8" />
+        <param name="threshold" value="INFO" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p] |%m%n" />
+        </layout>
+    </appender>
+
+    <logger name="com.tim.web.controller" additivity="false">
+        <appender-ref ref="Controller_Appender"/>
+    </logger>
+    <root>
+		<level value="WARN" />
+		<appender-ref ref="PROJECT" />
+	</root>
+</log4j:configuration>
