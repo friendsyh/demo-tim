@@ -1,0 +1,35 @@
+# common project
+target/
+.class
+.svn/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# Eclipse project files
+.classpath
+.project
+
+# Intellij project files
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# others
+*.swp
+*.swo
+*.html~
+*.js~
+*.coffee~
+*.css~
+*.less~
+*.orig
+
+# npm package
+.typeDefine
+node_modules/
+npm-debug.log
+.DS_Store
