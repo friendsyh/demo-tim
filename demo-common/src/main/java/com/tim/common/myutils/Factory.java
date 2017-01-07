@@ -1,4 +1,6 @@
-package com.tim.common.util;
+package com.tim.common.myutils;
+
+import com.tim.common.utils.DBDemo;
 
 import java.util.HashMap;
 import java.util.List;

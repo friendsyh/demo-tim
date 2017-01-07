@@ -1,4 +1,4 @@
-package com.tim.common.util;
+package com.tim.common.myutils;
 
 /**
  * <p>Title: aspire xPortal project</p>
@@ -50,26 +50,6 @@ public class StringUtils { // implements BaseErrorCode
             isISO = false;
         }
 
-    }
-
-    /**
-     * 该方法把HTML标签的"<"等转换成圆角符号。方法主要用来入对字符串入库前的格式化
-     * 这样让字符串取出来在前台显示的时候就不会把一些HTML元素解析成HTML的标签了。
-     *
-     * @author suyanghua
-     */
-    public static String TransferString(String str) {
-        str = str.replaceAll("<", "＜");
-        str = str.replace(">", "＞");
-        str = str.replace("'", "＇");
-        str = str.trim();
-//		str   =   str.replace("<","&lt;"); 
-//		str   =   str.replace( ">","&gt;"); 
-//		str   =   str.replace( "'","' '"); 
-//		str   =   str.replace( " ","&nbsp;"); 
-//		str   =   str.replace( "\n","<br/>"); 
-//		str   =   str.replace( "\r\n","<br/>"); 
-        return str;
     }
 
     /**

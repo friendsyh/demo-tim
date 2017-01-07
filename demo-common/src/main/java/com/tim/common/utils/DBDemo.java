@@ -1,4 +1,4 @@
-package com.tim.common.util;
+package com.tim.common.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

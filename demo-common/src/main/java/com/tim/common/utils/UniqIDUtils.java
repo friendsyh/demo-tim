@@ -1,4 +1,4 @@
-package com.tim.common.util;
+package com.tim.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -13,20 +13,19 @@ import java.util.UUID;
 
 /**
  * UUID generate
- * 
- * @author shuihan
+ * @author tim.syh
  * @since 20160613
  */
-public class UniqID {
+public class UniqIDUtils {
     private static char[] digits = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
-    private static UniqID me = new UniqID();
+    private static UniqIDUtils me = new UniqIDUtils();
     private String hostAddr;
     private Random random = new SecureRandom();
     private MessageDigest mHasher;
     private UniqTimer timer = new UniqTimer();
 
 
-    private UniqID() {
+    private UniqIDUtils() {
         try {
             InetAddress addr = InetAddress.getLocalHost();
 
@@ -49,7 +48,7 @@ public class UniqID {
     }
 
 
-    public static UniqID getInstance() {
+    public static UniqIDUtils getInstance() {
         return me;
     }
 
@@ -121,6 +120,6 @@ public class UniqID {
     }
 
     public static void main(String[] args) {
-        System.out.println(UniqID.getInstance().generateUUID());
+        System.out.println(UniqIDUtils.getInstance().generateUUID());
     }
 }

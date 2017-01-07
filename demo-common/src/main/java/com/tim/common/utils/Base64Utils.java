@@ -1,4 +1,4 @@
-package com.tim.common.util;
+package com.tim.common.utils;
 
 import org.apache.commons.codec.binary.Base64;
 
@@ -8,7 +8,7 @@ import org.apache.commons.codec.binary.Base64;
  * @author tim.syh
  *
  */
-public class Base64Util {
+public class Base64Utils {
 
 	/**
      * Base64 字符串转字节数组的时候。因为Base64字符不是标准字符，把+转成-，把/转成_，因此需要转换回来

@@ -1,4 +1,4 @@
-package com.tim.common.util;
+package com.tim.common.myutils;
 
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -42,7 +42,6 @@ public class ImageCaseImpl implements ImageCase {
 	 * 判断Image是否符合规格
 	 * 
 	 * @param fileArray
-	 * @param size
 	 * @return
 	 */
 	public  boolean isStandard(File fileArray, int width , int height ) {

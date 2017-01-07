@@ -1,11 +1,39 @@
-package com.tim.common.util;
+package com.tim.common.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class EncryptUtil {
+/**
+ * MD5，SHA算法等
+ * @author tim.syh
+ */
+public class EncryptUtils {
+
+    /**
+     * MD5加密算法
+     *
+     * @param data
+     *            需要加密的明文
+     * @return 加密后的密文
+     * @throws UnsupportedEncodingException
+     * @throws GeneralSecurityException
+     * @throws NoSuchAlgorithmException
+     */
+    public static String encryptMD5(String data) {
+        try {
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            md5.update(data.getBytes("UTF-8"));
+            return bytes2Hex(md5.digest());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
 
 	/**
 	 * SHA-1加密算法
@@ -25,30 +53,6 @@ public class EncryptUtil {
 			e.printStackTrace();
 			return null;
 		}
-	}
-
-	/**
-	 * MD5加密算法
-	 * 
-	 * @param data
-	 *            需要加密的明文
-	 * @return 加密后的密文
-	 * @throws UnsupportedEncodingException 
-	 * @throws GeneralSecurityException
-	 * @throws NoSuchAlgorithmException
-	 */
-	public static String encryptMD5(String data) {
-		try {
-			MessageDigest md5 = MessageDigest.getInstance("MD5");
-			md5.update(data.getBytes("utf8"));
-			return bytes2Hex(md5.digest());
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			return null;
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		return data;
 	}
 
 	/**

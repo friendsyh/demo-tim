@@ -1,4 +1,4 @@
-package com.tim.common.util;
+package com.tim.common.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,7 +17,7 @@ import java.util.Map;
  * @author tim.syh
  * @since 2016-10-30确定
  */
-public class GsonUtil {
+public class GsonUtils {
 
     private static Gson gson;
 
@@ -34,7 +34,7 @@ public class GsonUtil {
     }
 
     //外面不可以实例化，让自己实例化就行了。
-    private GsonUtil() {
+    private GsonUtils() {
     }
 
     /**

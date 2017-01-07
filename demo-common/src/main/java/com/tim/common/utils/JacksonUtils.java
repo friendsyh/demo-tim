@@ -1,4 +1,4 @@
-package com.tim.common.util;
+package com.tim.common.utils;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonFactory;
@@ -23,7 +23,7 @@ import java.util.Map;
  * @since 2016-10-30确定
  *
  */
-public class JacksonUtil {
+public class JacksonUtils {
     private static ObjectMapper objectMapper;
     private static JsonFactory jsonFactory;
 

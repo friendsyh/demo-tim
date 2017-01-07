@@ -1,8 +1,8 @@
-package com.tim.common.test.string;
+package com.tim.common.utils;
 
 import com.google.gson.reflect.TypeToken;
 
-import com.tim.common.util.GsonUtil;
+import com.tim.common.utils.GsonUtils;
 import com.tim.common.domain.CategoryNotStdDO;
 import com.tim.common.domain.test.FeatureDO;
 import com.tim.common.domain.test.FeatureListDO;
@@ -22,12 +22,12 @@ public class TestGsonJson {
     public static void main(String[] args) throws Exception {
 
         //如果传对的对象为空，那么返回的字符串也是空串喽
-        System.out.println(GsonUtil.objectToString(null));
-        System.out.println(GsonUtil.stringToObject(null,Map.class));
+        System.out.println(GsonUtils.objectToString(null));
+        System.out.println(GsonUtils.stringToObject(null,Map.class));
 
         Map<String, Object> bizWrapByS = new HashMap<String, Object>();
         bizWrapByS.put("item",new Object());
-        System.out.println(GsonUtil.objectToString(bizWrapByS));
+        System.out.println(GsonUtils.objectToString(bizWrapByS));
 
         //测试下划线格式的POJO转json的逻辑.普通对象
         FeatureDO f1 = new FeatureDO("tim", true, true, "tim");
@@ -40,25 +40,25 @@ public class TestGsonJson {
         FeatureResultDO featureResulttDO = new FeatureResultDO(featureListDO);
         CategoryNotStdDO c1 = new CategoryNotStdDO(100, false, "衣服", f1, fs, featureResulttDO);
 
-        String result1 = GsonUtil.toJson(c1);
+        String result1 = GsonUtils.toJson(c1);
         System.out.println(result1);
-        CategoryNotStdDO object11 = GsonUtil.stringToObject(result1, CategoryNotStdDO.class);
-        CategoryNotStdDO object12 = GsonUtil.stringToObject(result1, new TypeToken<CategoryNotStdDO>() {
+        CategoryNotStdDO object11 = GsonUtils.stringToObject(result1, CategoryNotStdDO.class);
+        CategoryNotStdDO object12 = GsonUtils.stringToObject(result1, new TypeToken<CategoryNotStdDO>() {
         });
 
         //list也使用toObj，不使用toList方法，还是有问题的。因为找不到List里面的T类型，因此把List里面的对象转为TreeMap类型了。
-        String result = GsonUtil.objectToString(fs);
+        String result = GsonUtils.objectToString(fs);
         System.out.println(result);
-//		Object object = GsonUtil.stringToObject(result, List.class);  //因为找不到List里面的T类型，因此把List里面的对象转为TreeMap类型了。
-//		Object object = GsonUtil.stringToObject(result, new TypeToken<List<FeatureDO>>(){});
+//		Object object = GsonUtils.stringToObject(result, List.class);  //因为找不到List里面的T类型，因此把List里面的对象转为TreeMap类型了。
+//		Object object = GsonUtils.stringToObject(result, new TypeToken<List<FeatureDO>>(){});
 
         Map<String, Object> map = new TreeMap<String, Object>();
         map.put("test_test1", 5);
         map.put("test_test2", f1);
-        String result2 = GsonUtil.objectToString(map);
+        String result2 = GsonUtils.objectToString(map);
         System.out.println(result2);
-        Map<Object, Object> object2 = GsonUtil.stringToObject(result2, Map.class);
-        Map<Object, Object> object3 = GsonUtil.stringToMap(result2);
+        Map<Object, Object> object2 = GsonUtils.stringToObject(result2, Map.class);
+        Map<Object, Object> object3 = GsonUtils.stringToMap(result2);
 
     }
 

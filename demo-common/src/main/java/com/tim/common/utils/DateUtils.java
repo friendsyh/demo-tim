@@ -1,4 +1,6 @@
-package com.tim.common.util;
+package com.tim.common.utils;
+
+import com.tim.common.myutils.StringUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,7 +10,7 @@ import java.util.GregorianCalendar;
 
 
 
-public class DateUtil{
+public class DateUtils {
 	
 	/** YYYYMMDD */
 	public static final String SIMPLE_DATE_FOMAT = "yyyyMMdd";

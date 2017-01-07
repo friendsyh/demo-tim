@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.tim.common.util.DateUtil;
+import com.tim.common.utils.DateUtils;
 
 public class TestCalendar {
 
@@ -53,9 +53,9 @@ public class TestCalendar {
 		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
 		while(weekCount > 0){
 			String sunStri = "";
-			sunStri = DateUtil.convertDateToString(calendar.getTime(), DateUtil.TIMEF_FORMAT);
+			sunStri = DateUtils.convertDateToString(calendar.getTime(), DateUtils.TIMEF_FORMAT);
 			calendar.add(Calendar.DAY_OF_MONTH, 6);
-			sunStri += "-" + DateUtil.convertDateToString(calendar.getTime(), DateUtil.TIMEF_FORMAT);
+			sunStri += "-" + DateUtils.convertDateToString(calendar.getTime(), DateUtils.TIMEF_FORMAT);
 			System.out.println(sunStri);
 			calendar.add(Calendar.DAY_OF_MONTH, 1);
 			if(calendar.get(Calendar.MONTH) > month - 1){

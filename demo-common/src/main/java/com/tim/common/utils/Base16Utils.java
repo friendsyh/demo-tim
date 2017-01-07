@@ -1,4 +1,4 @@
-package com.tim.common.util;
+package com.tim.common.utils;
 
 import java.util.Arrays;
 
@@ -8,7 +8,7 @@ import java.util.Arrays;
  * @author tim.syh
  *
  */
-public class Base16Util {
+public class Base16Utils {
 	
 	/** 
      * 把16进制字符串转换成字节数组
@@ -26,7 +26,7 @@ public class Base16Util {
             //toByte(achar[pos]) << 4 是高四位，进行或运算，比如10110000|00001011=10111011就得到结果了
             result[i] = (byte) (toByte(achar[pos]) << 4 | toByte(achar[pos + 1]));  
         }  
-        return result;  
+        return result;
     }
     
     /**
