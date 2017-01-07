@@ -1,15 +1,17 @@
 package com.tim.common.utils;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.text.DateFormat;
 import java.util.Map;
 
 /**
- * JSON序列化与反序列化工具。功能很强大，对于userName,user_name,is_allow,isAllow格式的属性名都能够正确转化。
+ * JSON序列化与反序列化工具。功能很强大，对于userName,user_name,is_allow,isAllow格式的属性名都能够正确序列化和反序列化。
  * 可以设置时间格式，字段为空是否要输出等等配置，都是在初始化的时候进行配置。 分为以下几种情况
- * 1.任何对象转json字符串，都是使用objectToString()或者toJsonStr()方法都可以
+ * 1.任何对象转json字符串，都是使用objectToString()或者toJsonStr()方法都可以。默认使用前者
  * 2.字符串转普通对象stringToObject(jsonStr,Student.class); 或者stringToObject(jsonStr,new TypeToken<Student>(){})
  * 3.字符串转List对象stringToObject(jsonStr,new TypeToken<List<Student>>(){})
  * 4.字符串转Map对象stringToObject(jsonStr,Map.class) | stringToObject(jsonStr,new TypeToken<Map>(){})会转成TreeMap，stringToMap(jsonStr,Map.class)会转成HashMap
@@ -28,8 +30,14 @@ public class GsonUtils {
 
     static {
         if (gson == null) {
-            //可以定义很多根式，比如日期格式，比如为空是否要序列化。
             gson = new GsonBuilder().setDateFormat(DATE_FORMAT).create();
+//            gson = new GsonBuilder()
+//                    .enableComplexMapKeySerialization()
+//                    .serializeNulls()  //如果value为null，也会序列化。比如{"item":null}
+//                    .setDateFormat(DATE_FORMAT)  //设置时间格式
+//                    .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE) //首字母大写
+//                    .setPrettyPrinting()
+//                    .create();
         }
     }
 
@@ -43,7 +51,7 @@ public class GsonUtils {
      * @param t: 需要序列化的泛型对象。
      * @return String: 序列化后的JSON串
      */
-    public static <T> String objectToString(T t) throws Exception {
+    public static <T> String objectToString(T t) {
         return gson.toJson(t);
     }
 
@@ -53,7 +61,7 @@ public class GsonUtils {
      * @param obj: 需要序列化的对象
      * @return String: 序列化后的JSON串
      */
-    public static String toJson(Object obj) throws Exception {
+    public static String toJson(Object obj) {
         return gson.toJson(obj);
     }
 
@@ -64,7 +72,7 @@ public class GsonUtils {
      * @param cls:  反序列化的对象class类型
      * @return <T> T: 反序列化的泛型对象
      */
-    public static <T> T stringToObject(String json, Class<T> cls) throws Exception {
+    public static <T> T stringToObject(final String json, Class<T> cls) {
         return gson.fromJson(json, cls);
     }
 
@@ -76,7 +84,7 @@ public class GsonUtils {
      * @param type: new TypeToken<T>(){}
      * @return <T> T: 反序列化的泛型对象
      */
-    public static <T> T stringToObject(String json, TypeToken<T> type) throws Exception {
+    public static <T> T stringToObject(final String json, TypeToken<T> type) {
         return gson.fromJson(json, type.getType());
     }
 
@@ -86,7 +94,8 @@ public class GsonUtils {
      * @param json: 需要反序列化的JSON字符串
      * @return <K, V> Map<K, V>: 反序列化的泛型对象MAP
      */
-    public static <K, V> Map<K, V> stringToMap(String json) throws Exception {
-        return gson.fromJson(json, new TypeToken<Map<K, V>>() {}.getType());
+    public static <K, V> Map<K, V> stringToMap(String json) {
+        return gson.fromJson(json, new TypeToken<Map<K, V>>() {
+        }.getType());
     }
 }

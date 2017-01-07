@@ -2,6 +2,7 @@ package com.tim.common.domain;
 
 import com.tim.common.domain.test.FeatureDO;
 import com.tim.common.domain.test.FeatureResultDO;
+import com.tim.common.pojo.BaseDO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +14,7 @@ import java.util.List;
  */
 @Data
 @AllArgsConstructor
-public class CategoryNotStdDO {
+public class CategoryNotStdDO extends BaseDO{
 
 	private int category_id;
 
