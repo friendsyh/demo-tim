@@ -9,7 +9,7 @@ import lombok.Data;
  * Created by tim.syh on 2016/12/23.
  */
 @Data
-public class Teacher extends Person{
+public class Teacher extends Person {
 
     private String schoolName;
 

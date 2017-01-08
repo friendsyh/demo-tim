@@ -25,9 +25,6 @@ public class ChangeField {
 	 */
 	public static void main(String[] args) throws Exception {
 		Point point1 = new Point();
-		point1.setPosition("abababababab");
-		point1.setColor("black");
-		point1.setSize("a big am pig");
 		System.out.println(point1.toString());
 		
 		changeField(point1);

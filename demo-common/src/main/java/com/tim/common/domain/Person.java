@@ -1,5 +1,7 @@
 package com.tim.common.domain;
 
+import com.tim.common.pojo.BaseDO;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,15 +16,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Person implements Serializable{
-	
-	private static final long serialVersionUID = -7142264207488774373L;
-
+public class Person extends BaseDO {
 	private String name;
 	private int age;
-
-	@Override
-	public String toString() {
-		return "Person [name=" + name + ", age=" + age + "]";
-	}
 }

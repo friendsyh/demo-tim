@@ -28,7 +28,6 @@ public class TestInstanceOf {
 		config.put("name","n_a_m_e");
 		config.put("age","Age");
         System.out.println(config instanceof Map);
-        Map<String,Object> result = convertPojo2TopMap(person,config);
     }
 
     public static void changeA(String a){
@@ -55,38 +54,6 @@ public class TestInstanceOf {
 			Person p = (Person) allPerson[i];
 			System.out.println(p.getName());
 		}
-	}
-
-	private static <T> Map<String,Object> convertPojo2TopMap(T object, Map<String, String> diamondConfig) throws Exception{
-		Map<String,Object> result = new HashMap<String, Object>();
-		if(object == null){
-			return result;
-		}
-		Class cls = object.getClass();
-		Field[] fields = cls.getDeclaredFields();
-		for(int i = 0; i < fields.length; i++){
-			Field field = fields[i];
-			field.setAccessible(true);
-			for(String key : diamondConfig.keySet()){
-				//处理features,写死的方式
-				if("features".equals(key)){
-					break;
-				}
-				//处理度量衡
-				if("taosirDO".equals(key)){
-					break;
-				}
-				//处理材质
-				if("materialDO".equals(key)){
-
-				}
-				if(field.getName().equals(key)){
-					result.put(diamondConfig.get(key), field.get(object));
-					break;
-				}
-			}
-		}
-		return result;
 	}
 
 }

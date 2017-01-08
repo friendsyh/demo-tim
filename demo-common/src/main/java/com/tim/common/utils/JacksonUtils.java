@@ -49,7 +49,7 @@ public class JacksonUtils {
     }
 
     public static <T> T stringToObject(final String input, Class<T> clazz) throws IOException {
-        T result = objectMapper.treeToValue(stringToObject(input), clazz);
+        T result = objectMapper.readValue(input, clazz);
         return result;
     }
 

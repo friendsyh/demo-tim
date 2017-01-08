@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 
+import com.tim.common.InitTestData;
 import com.tim.common.domain.Point;
 import com.tim.common.domain.Student;
 import com.tim.common.domain.Teacher;
@@ -21,30 +22,18 @@ import org.junit.Test;
 
 import java.util.*;
 
-public class JacksonUtilsTest {
+public class JacksonUtilsTest extends InitTestData {
 
-    private Student student;
     private String studentJsonStr;
-
-    private List<Student> studentList;
     private String studentListJsonStr;
-
-    private Teacher teacher;
     private String teacherJsonStr;
 
     @Before
     public void init(){
-        student = new Student("tim", 28, "No.2 school");
-        studentJsonStr = GsonUtils.objectToString(student);
-        Student student1 = new Student("lily", 20, "zhuzhou No.1 shcool");
-
-        studentList = Lists.newArrayList();
-        studentList.add(student);
-        studentList.add(student1);
-        studentListJsonStr = GsonUtils.objectToString(studentList);
-
-        teacher = new Teacher("teacher",50,"No.2 school", studentList, new Point(10,20));
-        teacherJsonStr = GsonUtils.objectToString(teacher);
+        initObject();
+        studentJsonStr = GsonUtils.objectToString(getStudent());
+        studentListJsonStr = GsonUtils.objectToString(getStudentList());
+        teacherJsonStr = GsonUtils.objectToString(getTeacher());
     }
 
     @Test
