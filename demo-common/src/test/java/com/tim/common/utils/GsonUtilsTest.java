@@ -22,7 +22,7 @@ public class GsonUtilsTest extends InitTestData {
     public void init(){
         initObject();
         studentJsonStr = GsonUtils.objectToString(getStudent());
-        studentListJsonStr = GsonUtils.objectToString(getStudentList());
+        studentListJsonStr = GsonUtils.objectToString(getTestStudentList());
         teacherJsonStr = GsonUtils.objectToString(getTeacher());
     }
 
@@ -43,6 +43,8 @@ public class GsonUtilsTest extends InitTestData {
 
     @Test
     public void testBasic() throws Exception {
+        String testJsonString = "{\"success\":true;\"errorCode\":100;\"module\":\"this is a module\"}";
+        Map object = GsonUtils.stringToObject(testJsonString, Map.class);
         Student newStudent = GsonUtils.stringToObject(studentJsonStr, Student.class);
         List<Student> newStudentList = GsonUtils.stringToObject(studentListJsonStr, new TypeToken<List<Student>>(){});
         Teacher newTeacher = GsonUtils.stringToObject(teacherJsonStr, Teacher.class);

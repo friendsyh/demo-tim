@@ -8,6 +8,7 @@ import com.tim.common.domain.Point;
 import com.tim.common.domain.Student;
 import com.tim.common.domain.Teacher;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -19,40 +20,59 @@ import lombok.Data;
  */
 @Data
 public class InitTestData {
-    private int testInt;
-    private Integer testInteger;
+    protected String testString;
+    protected String testJsonString;
 
-    private boolean testBoolean;
-    private Boolean testBooleanObj;
+    protected byte testByte;
+    protected Byte testByteObj;
 
-    private String testString;
-    private String jsonString;
+    protected boolean testBoolean;
+    protected Boolean testBooleanObject;
 
-    private Person perosn;
-    private Student student;
-    private Point point;
+    protected int testInt;
+    protected Integer testInteger;
+
+    protected double testDouble;
+    protected Double testDoubleObject;
+
+    protected long testLong;
+    protected Long testLongObject;
+
+    protected Date testUtilDate;
+    protected java.sql.Date testSqlDate;
+
+    protected String[] testStringArray;
+    protected List<String> testStringList;
+    protected List<Student> testStudentList;
+    protected Map<String, Object> testMap;
+
+    protected Person perosn;
+    protected Student student;
+    protected Point point;
     /** 符合对象，里面有List的student，也有student对象，也有point对象 */
-    private Teacher teacher;
-
-    private List<Student> studentList;
-    private Map<String, Object> testMap;
+    protected Teacher teacher;
 
     public void initObject(){
-        perosn = new Person("tim-苏那个世界", 25);
-        point = new Point(2,3);
-
-        studentList = Lists.newArrayList();
-        student = new Student("tim-苏那个世界", 28, "湖南师范大学");
-        Student student2 = new Student("lily-小怪兽", 22, "湖南师范大学");
-        studentList.add(student);
-        studentList.add(student2);
-        teacher = new Teacher("董新汉院长", 50, "湖南师范大学", studentList, point);
+        testString = "this is a test string";
 
         testMap = Maps.newHashMap();
         testMap.put("nullKey", null);
         testMap.put("emptyObjKey", new Object());
         testMap.put("stringKey", "value1");
         testMap.put("objKey", perosn);
-        testMap.put("listObjKey", studentList);
+        testMap.put("listObjKey", testStudentList);
+
+        perosn = new Person("tim-苏那个世界", 25);
+        point = new Point(2,3);
+        testStudentList = Lists.newArrayList();
+        student = new Student("tim-苏那个世界", 28, "湖南师范大学");
+        Student student2 = new Student("lily-小怪兽", 22, "湖南师范大学");
+        testStudentList.add(student);
+        testStudentList.add(student2);
+        teacher = new Teacher("董新汉院长", 50, "湖南师范大学", testStudentList, point);
+
+        System.out.println("***************************************************");
+        System.out.println("**********init test data success!!!!!!!!!*********");
+        System.out.println("***************************************************");
     }
 }

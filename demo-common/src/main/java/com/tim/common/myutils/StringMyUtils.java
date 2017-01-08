@@ -34,9 +34,9 @@ import java.util.regex.Pattern;
  * @author <a href="mailto:jon@latchkey.com">Jon S. Stevens</a>
  * @author <a href="mailto:dlr@finemaltcoding.com">Daniel Rall</a>
  * @author <a href="mailto:gcoladonato@yahoo.com">Greg Coladonato</a>
- * @version $Id: StringUtils.java,v 1.3 2002/07/11 16:53:21 mpoeschl Exp $
+ * @version $Id: StringMyUtils.java,v 1.3 2002/07/11 16:53:21 mpoeschl Exp $
  */
-public class StringUtils { // implements BaseErrorCode
+public class StringMyUtils { // implements BaseErrorCode
 
     private final static boolean isISO;
 
@@ -650,12 +650,12 @@ public class StringUtils { // implements BaseErrorCode
     public static String convert2Html(String origine) {
         String outStr = null;
         if (origine != null) {
-            String tmp = StringUtils.replace(origine, ">", "&gt;");
-            String tmp2 = StringUtils.replace(tmp, "<", "&lt;");
-            String tmp3 = StringUtils.replace(tmp2, " ", "&nbsp;");
+            String tmp = StringMyUtils.replace(origine, ">", "&gt;");
+            String tmp2 = StringMyUtils.replace(tmp, "<", "&lt;");
+            String tmp3 = StringMyUtils.replace(tmp2, " ", "&nbsp;");
 
-            String tmp4 = StringUtils.replace(tmp3, "\r\n", "<br>");
-            String tmp5 = StringUtils.replace(tmp4, "\n", "<br>");
+            String tmp4 = StringMyUtils.replace(tmp3, "\r\n", "<br>");
+            String tmp5 = StringMyUtils.replace(tmp4, "\n", "<br>");
             outStr = tmp5;
         } else {
             outStr = "";

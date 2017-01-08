@@ -1,6 +1,9 @@
-package com.tim.common.datastruct;
+package com.tim.common.datastruct.practice;
 
-public class TestDumb {
+/**
+ * 关灯的习题
+ */
+public class Dumb {
 
 	public int theLessDumb(){
 		boolean[] result = new boolean[100];
@@ -27,7 +30,7 @@ public class TestDumb {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println(new TestDumb().theLessDumb());
+		System.out.println(new Dumb().theLessDumb());
 	}
 
 }

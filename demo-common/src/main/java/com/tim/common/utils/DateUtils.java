@@ -1,6 +1,6 @@
 package com.tim.common.utils;
 
-import com.tim.common.myutils.StringUtils;
+import com.tim.common.myutils.StringMyUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,7 +54,7 @@ public class DateUtils {
 	 * "2012年03月16日"转换"20120316"
 	 */
 	public static String dateFormat(String oldDate){
-		if(StringUtils.isEmpty(oldDate))
+		if(StringMyUtils.isEmpty(oldDate))
 			return null;
 		else
 			return oldDate.substring(0, 4)+oldDate.substring(5, 7)+oldDate.substring(8, 10);
@@ -63,7 +63,7 @@ public class DateUtils {
 	 * "2012年第9周"转换"201209"
 	 */
 	public static String weekFormat(String oldWeek){
-		if(StringUtils.isEmpty(oldWeek))
+		if(StringMyUtils.isEmpty(oldWeek))
 			return null;
 		else {
 			String year = oldWeek.substring(0, 4);
@@ -80,7 +80,7 @@ public class DateUtils {
 	 * "2012年04月"转换"201204"
 	 */
 	public static String monthFormat(String oldMonth){
-		if(StringUtils.isEmpty(oldMonth))
+		if(StringMyUtils.isEmpty(oldMonth))
 			return null;
 		else
 			return oldMonth.substring(0, 4)+oldMonth.substring(5, 7);
@@ -90,7 +90,7 @@ public class DateUtils {
 	 * "201204"转换"2012年04月"
 	 */
 	public static String un_weekFormat(String oldMonth){
-		if(StringUtils.isEmpty(oldMonth))
+		if(StringMyUtils.isEmpty(oldMonth))
 			return null;
 		else{
 			return oldMonth.substring(0, 4)+"年第"+Integer.parseInt(oldMonth.substring(4, 6))+"周";
@@ -102,7 +102,7 @@ public class DateUtils {
 	 * "201204"转换"2012年04月"
 	 */
 	public static String un_monthFormat(String oldMonth){
-		if(StringUtils.isEmpty(oldMonth))
+		if(StringMyUtils.isEmpty(oldMonth))
 			return null;
 		else{
 			return oldMonth.substring(0, 4)+"年第"+oldMonth.substring(4, 6)+"月";

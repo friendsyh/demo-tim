@@ -1,22 +1,12 @@
 package com.tim.common.utils;
 
-import com.google.common.collect.Lists;
-import com.google.gson.reflect.TypeToken;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 
 import com.tim.common.InitTestData;
-import com.tim.common.domain.Point;
 import com.tim.common.domain.Student;
 import com.tim.common.domain.Teacher;
-import com.tim.common.utils.JacksonUtils;
 
-import com.tim.common.domain.CategoryNotStdDO;
-import com.tim.common.domain.test.FeatureDO;
-import com.tim.common.domain.test.FeatureResultDO;
-
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -32,7 +22,7 @@ public class JacksonUtilsTest extends InitTestData {
     public void init(){
         initObject();
         studentJsonStr = GsonUtils.objectToString(getStudent());
-        studentListJsonStr = GsonUtils.objectToString(getStudentList());
+        studentListJsonStr = GsonUtils.objectToString(getTestStudentList());
         teacherJsonStr = GsonUtils.objectToString(getTeacher());
     }
 

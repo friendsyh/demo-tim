@@ -1,4 +1,4 @@
-package com.tim.common.datastruct;
+package com.tim.common;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.Stack;
 
-public class TestDataStruct {
+public class DataStructTest {
 	public static void main(String[] args) {
 /*--------------------------------------------------堆栈的使用----------------------------------------------*/
 
