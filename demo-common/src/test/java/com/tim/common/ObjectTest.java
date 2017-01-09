@@ -1,7 +1,8 @@
 package com.tim.common;
 
 import com.tim.common.domain.ManyPropertiesObject;
-import com.tim.common.domain.Person;
+import com.tim.common.domain.Point;
+import com.tim.common.pojo.InitTestData;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,6 +28,15 @@ public class ObjectTest extends InitTestData {
     }
 
     @Test
+    public void testEqual() throws Exception {
+        Point point = new Point(1, 5);
+        System.out.println(point.toString());
+
+        Point point2 = new Point(1, 5);
+        System.out.println(point.equals(point2));
+    }
+
+    @Test
     public void TestObjectInit(){
         /**初始化object的结果总结：基本类型有默认值，所有对象对象都为null，注意String是对象类型
          * 1.String : null
@@ -49,20 +59,5 @@ public class ObjectTest extends InitTestData {
         testSqlDate = new java.sql.Date(testUtilDate.getTime()); //普通date转sql date
 
 //        testIntObject = new Integer();  //报错,初始化Integer需要指定
-    }
-
-    @Test
-    public void testChangeFunctionValue() throws Exception {
-        //string的值不会修改，person的值会修改
-        changeBasic(testString);
-        changeObj(perosn);
-    }
-
-    public static void changeBasic(String string){
-        string = "BBB";
-    }
-
-    public static void changeObj(Person person){
-        person.setName("浅行");
     }
 }

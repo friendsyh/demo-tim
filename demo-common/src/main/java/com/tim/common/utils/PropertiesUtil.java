@@ -8,11 +8,14 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
+import lombok.Data;
+
 /**
  * 配置文件读取工具
  * @author tim.syh
  *
  */
+@Data
 public class PropertiesUtil {
 
     private Properties propertie;
@@ -88,7 +91,7 @@ public class PropertiesUtil {
      * @param filePath 资源文件的路径的值
      * @return 给定资源文件所对应的Properties类对象的引用
      */
-    public static Properties loadPropertiesFile(String filePath) {
+    private Properties loadPropertiesFile(String filePath) {
         Properties properties = new Properties();
         InputStream is = null;
         try {
@@ -106,21 +109,5 @@ public class PropertiesUtil {
         }
         return properties;
 
-    }
-
-    public Properties getPropertie() {
-        return propertie;
-    }
-
-    public void setPropertie(Properties propertie) {
-        this.propertie = propertie;
-    }
-
-    public InputStream getInputFile() {
-        return inputFile;
-    }
-
-    public void setInputFile(InputStream inputFile) {
-        this.inputFile = inputFile;
     }
 }

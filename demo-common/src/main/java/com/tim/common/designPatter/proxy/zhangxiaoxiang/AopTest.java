@@ -1,6 +1,6 @@
 package com.tim.common.designPatter.proxy.zhangxiaoxiang;
 
-import com.tim.common.test.classLoader.Point;
+import com.tim.common.domain.Point;
 import com.tim.common.utils.PropertiesUtil;
 
 public class AopTest {

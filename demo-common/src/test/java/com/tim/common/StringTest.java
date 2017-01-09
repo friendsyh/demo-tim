@@ -1,6 +1,7 @@
 package com.tim.common;
 
-import org.junit.Assert;
+import com.tim.common.pojo.InitTestData;
+
 import org.junit.Before;
 import org.junit.Test;
 

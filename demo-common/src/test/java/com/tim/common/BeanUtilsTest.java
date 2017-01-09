@@ -1,18 +1,13 @@
 package com.tim.common;
 
-import com.google.common.collect.Lists;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 
-import java.util.List;
-
 import com.tim.common.domain.Person;
 import com.tim.common.domain.Point;
-import com.tim.common.domain.Student;
 import com.tim.common.domain.Teacher;
-import com.tim.common.utils.GsonUtils;
+import com.tim.common.pojo.InitTestData;
 
 /**
  * 测试BeanUtils类的深度拷贝。

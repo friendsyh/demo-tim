@@ -3,7 +3,7 @@ package com.tim.common.utils;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 
-import com.tim.common.InitTestData;
+import com.tim.common.pojo.InitTestData;
 import com.tim.common.domain.Student;
 import com.tim.common.domain.Teacher;
 

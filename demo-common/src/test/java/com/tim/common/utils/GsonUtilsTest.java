@@ -2,7 +2,7 @@ package com.tim.common.utils;
 
 import com.google.gson.reflect.TypeToken;
 
-import com.tim.common.InitTestData;
+import com.tim.common.pojo.InitTestData;
 import com.tim.common.domain.Student;
 import com.tim.common.domain.Teacher;
 
