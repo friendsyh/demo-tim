@@ -18,6 +18,14 @@
         </dependency>
         <dependency>
             <groupId>com.tim</groupId>
+            <artifactId>demo-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tim</groupId>
+            <artifactId>demo-sdk</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tim</groupId>
             <artifactId>demo-common</artifactId>
         </dependency>
     </dependencies>

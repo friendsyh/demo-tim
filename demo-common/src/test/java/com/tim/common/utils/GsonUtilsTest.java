@@ -49,4 +49,16 @@ public class GsonUtilsTest extends InitTestData {
         List<Student> newStudentList = GsonUtils.stringToObject(studentListJsonStr, new TypeToken<List<Student>>(){});
         Teacher newTeacher = GsonUtils.stringToObject(teacherJsonStr, Teacher.class);
     }
+
+    @Test
+    public void testInteger(){
+        String org = "abc";
+        String result = GsonUtils.objectToString(org);
+        System.out.println(org + ":" + result);
+
+        String s1 = GsonUtils.objectToString(new Integer(5));
+        String s2 = GsonUtils.objectToString(100L);
+        String s3 = GsonUtils.objectToString("abc");
+        System.out.println(s1 + ":" + s2 + ":" + s3);
+    }
 }
