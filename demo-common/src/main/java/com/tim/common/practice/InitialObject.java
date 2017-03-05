@@ -27,7 +27,23 @@ public class InitialObject {
         System.out.println("构造器");
     }
 
+    /**
+     *普通方法中可以使用静态变量，相当于一个全局变量
+     */
+    public void objectFunction(){
+        System.out.println("普通方法调用：中使用变量field：" + field);
+        staticField = "静态变量已经变化了";
+    }
+
+    /**
+     * 静态方法中不能使用普通变量，因为普通变量还没new出来对象呢。
+     */
+    public static void staticFunction(){
+        System.out.println("静态方法调用:");
+//        this.field = "abc";
+    }
+
     public static void main(String[] args) {
-        new InitialObject();
+        new InitialObject().objectFunction();
     }
 }

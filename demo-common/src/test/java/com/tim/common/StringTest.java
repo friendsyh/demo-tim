@@ -33,6 +33,15 @@ public class StringTest extends InitTestData {
     }
 
     @Test
+    public void equalsTest() throws Exception {
+        String str1 = "aaa";
+        String str2 = "aaa";
+        String str3 = new String("aaa");
+        System.out.println(str1 == str2);
+        System.out.println(str1 == str3);
+    }
+
+    @Test
     public void testBasicFunction() throws Exception {
         System.out.println("'that','nice','thisThing'".contains("'this'"));
 
