@@ -1,5 +1,6 @@
 package com.tim.common.pojo;
 
+import org.apache.commons.lang3.builder.RecursiveToStringStyle;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.io.Serializable;
@@ -9,9 +10,9 @@ import java.io.Serializable;
  * Created by tim.syh on 2016/12/26.
  */
 public class BaseDO implements Serializable{
-    private static final long serialVersionUID = 963271684707264144L;
+    private static final RecursiveToStringStyle toStringStyle = new RecursiveToStringStyle();
 
     public String toString() {
-        return ToStringBuilder.reflectionToString(this);
+        return ToStringBuilder.reflectionToString(this, toStringStyle);
     }
 }

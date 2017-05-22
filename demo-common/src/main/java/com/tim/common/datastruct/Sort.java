@@ -18,7 +18,7 @@ public class Sort {
 		int[] array = {49,385,10,890,5,76,1458,38};
 //		int[] array = {49,38,65,97,76,13,27,49,78,34,12,64,5,4,62,99,98,54,56,17,18,23,34,15,35,25,53,51};
 //		int[] array = {3,1,5,2};
-		System.out.println("before sorted:" + Arrays.toString(array));
+		System.out.println("before sorted:\n" + Arrays.toString(array));
 //		bullmSort(array);
 //		selectSort(array);
 //		insertSort(array);
@@ -27,13 +27,13 @@ public class Sort {
 //		heapSort(array);
 //		quickSort(array, 0, array.length - 1);
 //		mergeSort(array, 0, array.length - 1);
-		System.out.println("after sorted:" + Arrays.toString(array));
+		System.out.println("after sorted:\n" + Arrays.toString(array));
 	}
 	
 	
 	/**
 	 * 冒泡排序。
-	 * 外层循环遍历N-1次，每次循环结束后把最大的数冒泡到最后一个位置。内层循环表相邻的两个数，如果前面的数大于后面的数，交换位置
+	 * 外层循环遍历N-1次，每次循环结束后把最大的数冒泡到最后一个位置。内层循环比较相邻的两个数，如果前面的数大于后面的数，交换位置
 	 * 冒泡排序是稳定的。算法时间复杂度O(n2)--[n的平方]
 	 * @param array
 	 */
@@ -309,7 +309,7 @@ public class Sort {
     
     /**
      * 堆排序
-     * 始时把要排序的数的序列看作是一棵顺序存储的二叉树，调整它们的存储序，使之成为一个 堆，这时堆的根节点的数最大。
+     * 开始时把要排序的数的序列看作是一棵顺序存储的二叉树，调整它们的存储序，使之成为一个 堆，这时堆的根节点的数最大。
      * 然后将根节点与堆的最后一个节点交换。然后对前面(n-1)个数重新调整使之成为堆。依此类推，直到只有两个节点的堆，并对 它们作交换，最后得到有n个节点的有序序列。
      * @param array
      */

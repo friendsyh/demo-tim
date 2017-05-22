@@ -1,10 +1,18 @@
 package com.tim.common.practice;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * 标准的java 代码
  * Created by tim.syh on 2017/1/19.
  */
 public class FormatJavaCode {
+
+    /** 用户名称 */
+    @Setter
+    @Getter
+    private String userName;
 
     public static void main(String args[]) {
         // 缩进4个空格

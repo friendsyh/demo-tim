@@ -50,67 +50,14 @@ public class DateUtils {
      */
     public static final String TIMESSS_FORMAT = "yyyy-MM-dd HH:mm:ss.SSS";
 
-
     /**
-     * "2012年03月16日"转换"20120316"
+     * 把字符串类型的时间戳变成时间类型
+     * @param timestamp
+     * @return
+     * @throws ParseException
      */
-    public static String dateFormat(String oldDate) {
-        if (StringMyUtils.isEmpty(oldDate))
-            return null;
-        else
-            return oldDate.substring(0, 4) + oldDate.substring(5, 7) + oldDate.substring(8, 10);
-    }
-
-    /**
-     * "2012年第9周"转换"201209"
-     */
-    public static String weekFormat(String oldWeek) {
-        if (StringMyUtils.isEmpty(oldWeek))
-            return null;
-        else {
-            String year = oldWeek.substring(0, 4);
-            String week = null;
-            if (oldWeek.length() == 8) {
-                week = "0" + oldWeek.substring(6, 7);
-            } else {
-                week = oldWeek.substring(6, 8);
-            }
-            return year + week;
-        }
-    }
-
-    /**
-     * "2012年04月"转换"201204"
-     */
-    public static String monthFormat(String oldMonth) {
-        if (StringMyUtils.isEmpty(oldMonth))
-            return null;
-        else
-            return oldMonth.substring(0, 4) + oldMonth.substring(5, 7);
-    }
-
-    /**
-     * "201204"转换"2012年04月"
-     */
-    public static String un_weekFormat(String oldMonth) {
-        if (StringMyUtils.isEmpty(oldMonth))
-            return null;
-        else {
-            return oldMonth.substring(0, 4) + "年第" + Integer.parseInt(oldMonth.substring(4, 6)) + "周";
-        }
-
-    }
-
-    /**
-     * "201204"转换"2012年04月"
-     */
-    public static String un_monthFormat(String oldMonth) {
-        if (StringMyUtils.isEmpty(oldMonth))
-            return null;
-        else {
-            return oldMonth.substring(0, 4) + "年第" + oldMonth.substring(4, 6) + "月";
-        }
-
+    public synchronized static Date convertLong2Date(String timestamp) throws ParseException {
+        return new SimpleDateFormat(TIMEF_FORMAT).parse(timestamp);
     }
 
     /**
@@ -327,6 +274,69 @@ public class DateUtils {
             betweenDays += c1.getMaximum(Calendar.DAY_OF_YEAR);
         }
         return betweenDays;
+    }
+
+    /**
+     * "2012年03月16日"转换"20120316"
+     */
+    public static String dateFormat(String oldDate) {
+        if (StringMyUtils.isEmpty(oldDate)){
+            return null;
+        } else {
+            return oldDate.substring(0, 4) + oldDate.substring(5, 7) + oldDate.substring(8, 10);
+        }
+    }
+
+    /**
+     * "2012年第9周"转换"201209"
+     */
+    public static String weekFormat(String oldWeek) {
+        if (StringMyUtils.isEmpty(oldWeek))
+            return null;
+        else {
+            String year = oldWeek.substring(0, 4);
+            String week = null;
+            if (oldWeek.length() == 8) {
+                week = "0" + oldWeek.substring(6, 7);
+            } else {
+                week = oldWeek.substring(6, 8);
+            }
+            return year + week;
+        }
+    }
+
+    /**
+     * "2012年04月"转换"201204"
+     */
+    public static String monthFormat(String oldMonth) {
+        if (StringMyUtils.isEmpty(oldMonth))
+            return null;
+        else
+            return oldMonth.substring(0, 4) + oldMonth.substring(5, 7);
+    }
+
+    /**
+     * "201204"转换"2012年04月"
+     */
+    public static String un_weekFormat(String oldMonth) {
+        if (StringMyUtils.isEmpty(oldMonth))
+            return null;
+        else {
+            return oldMonth.substring(0, 4) + "年第" + Integer.parseInt(oldMonth.substring(4, 6)) + "周";
+        }
+
+    }
+
+    /**
+     * "201204"转换"2012年04月"
+     */
+    public static String un_monthFormat(String oldMonth) {
+        if (StringMyUtils.isEmpty(oldMonth))
+            return null;
+        else {
+            return oldMonth.substring(0, 4) + "年第" + oldMonth.substring(4, 6) + "月";
+        }
+
     }
 
     public static void main(String[] args) throws Exception {

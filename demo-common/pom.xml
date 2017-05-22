@@ -44,6 +44,11 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
         </dependency>
+        <!-- Apache 文件上传等使用 -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
         <!-- 谷歌的一个collection的工具类，让操作集合的代码更加简洁，比如new HashMap等 -->
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -65,6 +70,12 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+        </dependency>
+
+        <!-- xml解析相关内容 -->
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
         </dependency>
         <!-- 用来注入使用的包-->
         <dependency>
