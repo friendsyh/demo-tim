@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 自建网管gateway
+ * 自建网关gateway
  * @user: tim.syh
  */
 @Slf4j

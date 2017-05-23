@@ -1,8 +1,8 @@
-package service.impl;
+package com.tim.service.impl;
 
 import com.tim.common.pojo.ResultDO;
 
-import service.LoginService;
+import com.tim.service.LoginService;
 
 /**
  * 登录服务实现

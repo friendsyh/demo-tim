@@ -1,4 +1,4 @@
-package service;
+package com.tim.service;
 
 import com.tim.common.pojo.ResultDO;
 

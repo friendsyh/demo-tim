@@ -20,7 +20,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
-import service.LoginService;
+import com.tim.service.LoginService;
 
 @Slf4j
 @Component("gatewayRequestHandler")
