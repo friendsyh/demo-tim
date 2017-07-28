@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * java排序常见算法
  * 选择，冒泡，简单插入等排序 因为每一次比较都只是移动了相邻的两个数，所以效率比较低。
- * 但是比如快速排序，依次比较可以跳跃到较远的位置，所以效率比较高。
+ * 但是比如快速，合并，shell，堆排序等依次比较可以跳跃到较远的位置，所以效率比较高。
  * @author 苏阳华
  * @since 2015-01-03
  *
@@ -89,7 +89,7 @@ public class Sort {
 		for(int i = 1;i < length;i++){
 			//需要插入的array[i]元素，默认前面的array[0]——array[i-1]都已经排序好了
 			key = array[i];
-			//遍历前面的array[i-1]——array[0]，如果发现key < 其中某个，那么将其后移,到最后会腾出一个位置。
+			//遍历前面排序好的array[j]——array[0]，如果发现key < a[j]，那么将a[j]后移一位到a[j+1],到最后会腾出一个位置。
 			for(j = i - 1;j >= 0 && key < array[j];j--){
 				array[j+1] = array[j];
 			}
