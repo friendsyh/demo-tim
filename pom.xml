@@ -51,6 +51,16 @@
                 <artifactId>demo-common</artifactId>
                 <version>${demo.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.tim</groupId>
+                <artifactId>demo-sdk</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tim</groupId>
+                <artifactId>demo-client</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
             <!--===================================================-->
             <!--demo dependency end-->
             <!--===================================================-->
