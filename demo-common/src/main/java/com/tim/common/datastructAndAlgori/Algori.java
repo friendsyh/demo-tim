@@ -1,4 +1,4 @@
-package com.tim.common.datastruct;
+package com.tim.common.datastructAndAlgori;
 
 /**
  * 算法大全

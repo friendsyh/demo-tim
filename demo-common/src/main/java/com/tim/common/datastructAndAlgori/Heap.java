@@ -1,4 +1,4 @@
-package com.tim.common.datastruct;
+package com.tim.common.datastructAndAlgori;
 
 import java.util.Arrays;
 
