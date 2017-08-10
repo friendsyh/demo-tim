@@ -88,8 +88,11 @@ public class RecursionTwo {
         if(index == 1){
             move(1, from, to);
         } else{
+            //把之前的index-1以上的盘子进行hanoi，从A移动到B，借助C
             hanoi(index-1, from, bridge, to);
+            //把index直接从A移动到C
             move(index, from, to);
+            //把index-1以上的盘子进行hanoi，从B移动到C，就完成了整个操作
             hanoi(index-1, bridge, to, from);
         }
     }
