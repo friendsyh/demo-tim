@@ -26,16 +26,16 @@ public class BeanUtilsTest extends InitTestData {
     @Test
     public void testCopyObject() {
         //能拷贝成功
-        Person personCopy = new Person();
-        BeanUtils.copyProperties(getPerosn(), personCopy);
+        Person personToCopy = new Person();
+        BeanUtils.copyProperties(getPerosn(), personToCopy);
 
-        Teacher teacherCopy = new Teacher();
-        BeanUtils.copyProperties(getTeacher(), teacherCopy);
-        //teacher 的age不会改变
-        teacherCopy.setAge(50000);
-        //teacher 的point不会改变
-        teacherCopy.setPoint(new Point(10000, 1000));
-        //注意：：：：：teacher 的students[0] 会改变
-        teacherCopy.getStudents().get(0).setSchoolName("yuzhou school");
+        Teacher teacherToCopy = new Teacher();
+        BeanUtils.copyProperties(getTeacher(), teacherToCopy);
+        //teacher 的age不会改变,说明 基本类型属性是深度拷贝
+        teacherToCopy.setAge(50000);
+        //teacher 的point不会改变,说明 对象属性是深度拷贝
+        teacherToCopy.setPoint(new Point(10000, 1000));
+        //注意：：：：：teacher 的students[0] 会改变,说明里面的List不会是深度拷贝
+        teacherToCopy.getStudents().get(0).setSchoolName("yuzhou school");
     }
 }

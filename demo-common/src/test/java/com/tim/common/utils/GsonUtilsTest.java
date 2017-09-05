@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import com.tim.common.pojo.InitTestData;
 import com.tim.common.domain.Student;
 import com.tim.common.domain.Teacher;
+import com.tim.common.pojo.ResultDO;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,12 +19,18 @@ public class GsonUtilsTest extends InitTestData {
     private String studentListJsonStr;
     private String teacherJsonStr;
 
+    //带有泛型的序列化
+    private String genericJsonStr;
+
     @Before
     public void init(){
         initObject();
         studentJsonStr = GsonUtils.objectToString(getStudent());
         studentListJsonStr = GsonUtils.objectToString(getTestStudentList());
         teacherJsonStr = GsonUtils.objectToString(getTeacher());
+
+
+        genericJsonStr = GsonUtils.objectToString(getResultDO());
     }
 
     @Test
@@ -60,5 +67,10 @@ public class GsonUtilsTest extends InitTestData {
         String s2 = GsonUtils.objectToString(100L);
         String s3 = GsonUtils.objectToString("abc");
         System.out.println(s1 + ":" + s2 + ":" + s3);
+    }
+
+    @Test
+    public void testGeneric() {
+        ResultDO<Student> result = GsonUtils.stringToObject(genericJsonStr, new TypeToken<ResultDO<Student>>(){});
     }
 }

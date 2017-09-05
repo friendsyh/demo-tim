@@ -51,6 +51,7 @@ public class InitTestData {
     protected Point point;
     /** 符合对象，里面有List的student，也有student对象，也有point对象 */
     protected Teacher teacher;
+    protected ResultDO<Point> resultDO;
 
     public void initObject(){
         testString = "this is a test string";
@@ -70,6 +71,8 @@ public class InitTestData {
         testStudentList.add(student);
         testStudentList.add(student2);
         teacher = new Teacher("董新汉院长", 50, "湖南师范大学", testStudentList, point);
+
+        resultDO = ResultDO.successResult(point);
 
         System.out.println("***************************************************");
         System.out.println("**********init test data success!!!!!!!!!*********");
