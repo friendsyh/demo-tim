@@ -35,6 +35,6 @@ public enum LoginPageEnum {
     public static void main(String[] args) {
         LoginPageEnum loginPageEnum = valueOf(6);
         System.out.println(loginPageEnum.getCode());
-        System.out.println(loginPageEnum.name());
+        System.out.println(MOBILE_REG.name());
     }
 }

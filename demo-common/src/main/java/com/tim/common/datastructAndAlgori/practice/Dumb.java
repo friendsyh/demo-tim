@@ -1,4 +1,4 @@
-package com.tim.common.datastruct.practice;
+package com.tim.common.datastructAndAlgori.practice;
 
 /**
  * 关灯的习题
