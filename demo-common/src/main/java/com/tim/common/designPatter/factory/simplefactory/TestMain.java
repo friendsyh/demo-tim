@@ -1,4 +1,4 @@
-package com.tim.common.designPatter.factory;
+package com.tim.common.designPatter.factory.simplefactory;
 
 import com.tim.common.designPatter.factory.simplefactory.SimplePizzaFactory;
 

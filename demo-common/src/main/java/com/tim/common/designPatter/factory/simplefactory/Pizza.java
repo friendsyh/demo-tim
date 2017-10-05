@@ -1,4 +1,4 @@
-package com.tim.common.designPatter.factory;
+package com.tim.common.designPatter.factory.simplefactory;
 
 /**
  * Created by tim.syh on 2016/8/30.

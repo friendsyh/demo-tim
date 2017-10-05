@@ -1,7 +1,5 @@
 package com.tim.common.designPatter.factory.simplefactory;
 
-import com.tim.common.designPatter.factory.Pizza;
-
 /**
  * Created by tim.syh on 2016/8/30.
  */

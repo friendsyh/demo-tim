@@ -16,7 +16,12 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Person extends BaseDO {
+public class Person extends BaseDO implements Comparable<Person> {
 	private String name;
 	private int age;
+
+    @Override
+    public int compareTo(Person object) {
+        return name.compareTo(object.getName());
+    }
 }
