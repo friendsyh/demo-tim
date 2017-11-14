@@ -5,9 +5,7 @@ import lombok.Data;
 import java.sql.Connection;
 
 /**
- * 数据库连接池的管理类
- * 一个单例模式
- * Created by tim.syh on 2016/8/14.
+ * 数据库连接池的管理类 一个单例模式 Created by tim.syh on 2016/8/14.
  */
 @Data
 public class DBConnectionManager {
@@ -23,34 +21,34 @@ public class DBConnectionManager {
 
 
     //构造方法私有
-    private DBConnectionManager(){
+    private DBConnectionManager() {
         this.init();
     }
 
     //初始化的时候需要加载驱动，然后创建连接池对象
-    private void init(){
-        try{
+    private void init() {
+        try {
             //加载驱动
             Class.forName("com.mysql.jdbc.Driver");
             pool = new DBConnectionPool(2);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static synchronized DBConnectionManager getInstance(){
-        if(dbConnectionManager == null){
+    public static synchronized DBConnectionManager getInstance() {
+        if (dbConnectionManager == null) {
             dbConnectionManager = new DBConnectionManager();
         }
         clients++;
         return dbConnectionManager;
     }
 
-    public Connection getConnection(){
+    public Connection getConnection() {
         return pool.getConnection();
     }
 
-    public void freeConnection(Connection connection){
+    public void freeConnection(Connection connection) {
         pool.freeConnection(connection);
     }
 
