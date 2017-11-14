@@ -33,6 +33,12 @@ public class StringTest extends InitTestData {
     }
 
     @Test
+    public void substringTest() throws Exception {
+        String ss = "http://baidu.com?abc=123";
+        System.out.println(ss.substring( 0,ss.indexOf("?")));
+    }
+
+    @Test
     public void equalsTest() throws Exception {
         String str1 = "aaa";
         String str2 = "aaa";

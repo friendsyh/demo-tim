@@ -23,5 +23,8 @@ public class BasicDataTypeTest {
 
         System.out.println(int.class.isPrimitive()); //true,是一个基本数据类型
         System.out.println(Integer.class.isPrimitive()); //false,不是一个基本数据类型
+
+        Integer i41 = 5;
+        System.out.println(i41 + "");
     }
 }

@@ -1,6 +1,8 @@
 package com.tim.common.practice.exception;
 
 import com.tim.common.domain.Person;
+import com.tim.common.domain.Point;
+import com.tim.common.domain.Student;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +35,12 @@ public class ExceptionPrint {
 
     private void exceptionLogger() {
         Person person = null;
+        Point point = null;
+        Student student = null;
         try {
             person = new Person("susu", 15);
+            point = new Point(1,2);
+            student = new Student("susu",25, "No.2 scholl");
             Object object = null;
             object.hashCode();
         } catch (Exception e) {
@@ -47,6 +53,11 @@ public class ExceptionPrint {
             //居然也能够正常打印出堆栈。第二,第三个对象为空
             //2017-09-22 12:01:17,529 [ERROR] [demo-tim]| [ExceptionPrint] ####2222#####this is a exception test,person=Person(name=susu, age=15),student={},hello={}
             logger.error("####3333#####this is a exception test,person={},student={},hello={}", person, e);
+            //常常使用的标准形式，能够正确打印出堆栈
+            logger.error("####4444#####this is a exception test,person={},point={},student={}", person, point, student, e);
+
+            //ponitX 设置为 Integer类型，打印正常
+            logger.error("####5555#####this is a exception test,person={},pointx={}", person, new Integer(10));
         }
     }
 }
