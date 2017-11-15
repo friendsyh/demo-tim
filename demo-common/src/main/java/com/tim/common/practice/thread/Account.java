@@ -45,6 +45,7 @@ public class Account {
             this.amount = amount;
         }
 
+        @Override
         public void run() {
             for (int i = 0; i < 200000; i++) {
                 account.add(amount);
@@ -61,6 +62,7 @@ public class Account {
             this.amount = amount;
         }
 
+        @Override
         public void run() {
             for (int i = 0; i < 100000; i++) {
                 account.withdraw(amount);

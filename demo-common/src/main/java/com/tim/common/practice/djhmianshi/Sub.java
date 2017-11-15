@@ -9,6 +9,7 @@ public class Sub extends Super {
         super(20);
     }
 
+    @Override
     public Integer getLenght() {
         return new Integer(5);
     }

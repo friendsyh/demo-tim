@@ -155,6 +155,7 @@ public class GatewayRequestHandler extends AbstractRequestHandler<GatewayRequest
         return resultDO;
     }
 
+    @Override
     public ResultDO invokeAction(GatewayRequest requestDO) {
         log.warn("invokeAction request param: " + requestDO.toString());
         Object body = requestDO.getBody();

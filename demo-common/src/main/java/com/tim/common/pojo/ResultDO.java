@@ -104,8 +104,9 @@ public class ResultDO<T> extends BaseDO {
     }
 
     public void appendMsg(String msg) {
-        if(msg == null)
+        if(msg == null) {
             return;
+        }
         if(errorMsg == null) {
             errorMsg = "";
         } else {

@@ -15,7 +15,8 @@ import javax.imageio.ImageIO;
  */
 public class ImageCaseImpl implements ImageCase {
 
-	public File compressionImage(File formerFile, double minification)throws Exception{
+	@Override
+    public File compressionImage(File formerFile, double minification)throws Exception{
 		BufferedImage dstImage = null;  
 		File file=null;
 		long num = System.currentTimeMillis() + new Random().nextInt(1000);
@@ -44,7 +45,8 @@ public class ImageCaseImpl implements ImageCase {
 	 * @param fileArray
 	 * @return
 	 */
-	public  boolean isStandard(File fileArray, int width , int height ) {
+	@Override
+    public  boolean isStandard(File fileArray, int width , int height ) {
 		boolean bool = false;
 		BufferedImage src;
 		int imgeWidth = 0;

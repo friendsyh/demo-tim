@@ -117,7 +117,9 @@ public class RequestDO {
     }
 
     protected static String getRemoteAddr(HttpServletRequest request) {
-        if (request == null) return null;
+        if (request == null) {
+            return null;
+        }
         String remoteAddr = null;
         String forwardedFors = request.getHeader("X-Forwarded-For");
         if (isEffective(forwardedFors)) {
@@ -165,6 +167,7 @@ public class RequestDO {
         this.action = action;
     }
 
+    @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this);
     }

@@ -10,7 +10,8 @@ package com.tim.common.practice.framworkdemo;
  */
 public class BookA implements IBook{
 
-	public void learn() {
+	@Override
+    public void learn() {
 		System.out.println("learn book AAAAAAAAAAAAAAAA");
 	}
 	

@@ -71,8 +71,9 @@ public class PropertiesUtil {
             if (propertie.containsKey(key)) {
                 value = propertie.getProperty(key);
                 return value;
-            } else
+            } else {
                 return value;
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return "";

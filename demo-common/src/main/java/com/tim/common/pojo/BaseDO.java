@@ -12,6 +12,7 @@ import java.io.Serializable;
 public class BaseDO implements Serializable{
     private static final RecursiveToStringStyle toStringStyle = new RecursiveToStringStyle();
 
+    @Override
     public String toString() {
         return ToStringBuilder.reflectionToString(this, toStringStyle);
     }

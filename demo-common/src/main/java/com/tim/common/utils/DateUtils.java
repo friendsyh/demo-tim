@@ -291,9 +291,9 @@ public class DateUtils {
      * "2012年第9周"转换"201209"
      */
     public static String weekFormat(String oldWeek) {
-        if (StringMyUtils.isEmpty(oldWeek))
+        if (StringMyUtils.isEmpty(oldWeek)) {
             return null;
-        else {
+        } else {
             String year = oldWeek.substring(0, 4);
             String week = null;
             if (oldWeek.length() == 8) {
@@ -309,19 +309,20 @@ public class DateUtils {
      * "2012年04月"转换"201204"
      */
     public static String monthFormat(String oldMonth) {
-        if (StringMyUtils.isEmpty(oldMonth))
+        if (StringMyUtils.isEmpty(oldMonth)) {
             return null;
-        else
+        } else {
             return oldMonth.substring(0, 4) + oldMonth.substring(5, 7);
+        }
     }
 
     /**
      * "201204"转换"2012年04月"
      */
     public static String un_weekFormat(String oldMonth) {
-        if (StringMyUtils.isEmpty(oldMonth))
+        if (StringMyUtils.isEmpty(oldMonth)) {
             return null;
-        else {
+        } else {
             return oldMonth.substring(0, 4) + "年第" + Integer.parseInt(oldMonth.substring(4, 6)) + "周";
         }
 
@@ -331,9 +332,9 @@ public class DateUtils {
      * "201204"转换"2012年04月"
      */
     public static String un_monthFormat(String oldMonth) {
-        if (StringMyUtils.isEmpty(oldMonth))
+        if (StringMyUtils.isEmpty(oldMonth)) {
             return null;
-        else {
+        } else {
             return oldMonth.substring(0, 4) + "年第" + oldMonth.substring(4, 6) + "月";
         }
 

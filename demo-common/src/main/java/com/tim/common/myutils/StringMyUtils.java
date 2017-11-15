@@ -890,8 +890,9 @@ public class StringMyUtils { // implements BaseErrorCode
         int len = 0;
         int i = 0, count = formatStrings.length;
         for (i = 0; i < count; i++) {
-            if (formatStrings[i] != null)
+            if (formatStrings[i] != null) {
                 len += formatStrings[i].length();
+            }
         }
 
         StringBuffer sb = new StringBuffer(src.length() + len);
@@ -1023,7 +1024,9 @@ public class StringMyUtils { // implements BaseErrorCode
      * 通过Base64加密字节
      */
     public static String encDataByBase64(byte[] data) {
-        if (data == null) return null;
+        if (data == null) {
+            return null;
+        }
         return Base64.byteArrayToBase64(data);
     }
 
@@ -1031,7 +1034,9 @@ public class StringMyUtils { // implements BaseErrorCode
      * 返回字符串对应的byte数组
      */
     public static byte[] getStringByUTF8(String str) {
-        if (str == null) return null;
+        if (str == null) {
+            return null;
+        }
         byte[] retStr = null;
         try {
             retStr = str.getBytes("UTF-8");
@@ -1046,7 +1051,9 @@ public class StringMyUtils { // implements BaseErrorCode
      */
     public static String traverseByteToString(byte[] data) {
 
-        if (null == data) return null;
+        if (null == data) {
+            return null;
+        }
         String retStr = null;
         try {
             retStr = new String(data, "UTF-8");
@@ -1061,8 +1068,9 @@ public class StringMyUtils { // implements BaseErrorCode
      * 解密字符
      */
     public static String decDataByBase64(String data) {
-        if (data == null)
+        if (data == null) {
             return null;
+        }
 
         String retStr = null;
         try {
@@ -1115,8 +1123,9 @@ public class StringMyUtils { // implements BaseErrorCode
         Matcher m = p.matcher(name);
         if (m.find()) {
             return true;
-        } else
+        } else {
             return false;
+        }
     }
 
 }

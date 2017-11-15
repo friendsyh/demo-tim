@@ -23,10 +23,12 @@ public class MakeCertPic {
 	 * 功能:生成彩色验证码图片 参数width为生成图片的宽度,参数height为生成图片的高度,参数os为页面的输出流
 	 */
 	public String getCertPic(int width, int height, OutputStream os) {
-		if (width <= 0)
-			width = 60;
-		if (height <= 0)
-			height = 20;
+		if (width <= 0) {
+            width = 60;
+        }
+		if (height <= 0) {
+            height = 20;
+        }
 		BufferedImage image = new BufferedImage(width, height,
 				BufferedImage.TYPE_INT_RGB);
 		// 获取图形上下文
