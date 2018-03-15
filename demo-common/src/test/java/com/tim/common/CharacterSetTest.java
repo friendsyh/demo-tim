@@ -1,5 +1,6 @@
 package com.tim.common;
 
+import com.tim.common.utils.Base16Utils;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -9,6 +10,34 @@ import java.util.Arrays;
  * Created by tim.syh on 2017/1/8.
  */
 public class CharacterSetTest {
+
+    @Test
+    public void testEncodeDecode() throws Exception {
+        byte[] b = "你好，中国".getBytes("GBK"); //返回它的字节数组。
+        System.out.println(Arrays.toString(b));//GBK下[-60, -29, -70, -61, -93, -84, -42, -48, -71, -6]
+        System.out.println(Base16Utils.bytesToHexString(b));//UTF-8下:C4E3 BAC3 A3AC D6D0 B9FA
+        System.out.println("-----------------------------------------------------------------");
+
+        byte[] b_utf8 = "严".getBytes("UTF-8"); //返回它的字节数组。
+        System.out.println(Arrays.toString(b_utf8));//UTF-8下[-28, -72, -91]
+        System.out.println(Base16Utils.bytesToHexString(b_utf8));//UTF-8下:E4B8A5
+        System.out.println("-----------------------------------------------------------------");
+
+        byte[] b_gb2312 = "严".getBytes("GB2312"); //返回它的字节数组。
+        System.out.println(Arrays.toString(b_gb2312));//GB2312下[-47, -49]
+        System.out.println(Base16Utils.bytesToHexString(b_gb2312));//GB2312下:D1CF
+        System.out.println("-----------------------------------------------------------------");
+
+        byte[] b1_utf8 = "y".getBytes("UTF-8"); //返回它的字节数组。
+        System.out.println(Arrays.toString(b1_utf8));//UTF-8下[-28, -72, -91]
+        System.out.println(Base16Utils.bytesToHexString(b1_utf8));//UTF-8下:E4B8A5
+        System.out.println("-----------------------------------------------------------------");
+
+        byte[] b1_gb2312 = "y".getBytes("GB2312"); //返回它的字节数组。
+        System.out.println(Arrays.toString(b1_gb2312));//GB2312下[-47, -49]
+        System.out.println(Base16Utils.bytesToHexString(b1_gb2312));//GB2312下:D1CF
+        System.out.println("-----------------------------------------------------------------");
+    }
 
     @Test
     public void encodeDecode() throws Exception {

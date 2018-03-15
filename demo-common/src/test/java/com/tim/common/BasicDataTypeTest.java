@@ -38,11 +38,12 @@ public class BasicDataTypeTest {
         Double d1 = 1.0d;
         Double d2 = 0.9d;
         Double d3 = 0.1d;
+        Double d4 = 0.2d;
+        Double d5 = 0.5d;
 
         System.out.println("十进制：d1=" + d1 + ",d2=" + d2 + ",d3=" + d3);  //d1=1.0,d2=0.9,d3=0.1
         System.out.println("二进制：d1=" + Double.doubleToLongBits(d1) + ",d2=" + Double.doubleToLongBits(d2) + ",d3=" + Double.doubleToLongBits(d3));
-        System.out.println(d1 - d2); //0.09999999999999998, 因为十进制的0.9转成二进制本身是一个无限循环的东西。所以计算出来的也是一个无限循环的东西。
-        System.out.println(d2 + d3); //1.0
-        System.out.println(d2 + new Double(0.5d));
+        System.out.println(d1 - d2); //1.0-0.9=0.09999999999999998, 因为十进制的0.9转成二进制本身是一个无限循环的东西。所以计算出来的也是一个无限循环的东西。
+        System.out.println(d1 - d4); //1.0-0.8=0.2
     }
 }
