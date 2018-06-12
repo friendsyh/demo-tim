@@ -1,13 +1,13 @@
 package com.tim.common;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.beans.BeanUtils;
-
 import com.tim.common.domain.Person;
+import com.tim.common.domain.PersonSpecial;
 import com.tim.common.domain.Point;
 import com.tim.common.domain.Teacher;
 import com.tim.common.pojo.InitTestData;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.BeanUtils;
 
 /**
  * 测试BeanUtils类的深度拷贝。
@@ -38,4 +38,17 @@ public class BeanUtilsTest extends InitTestData {
         //注意：：：：：teacher 的students[0] 会改变,说明里面的List不会是深度拷贝
         teacherToCopy.getStudents().get(0).setSchoolName("yuzhou school");
     }
+
+    @Test
+    public void testIntegeCopy() {
+        //能拷贝成功
+        System.out.println("origin :" + perosn);
+
+        PersonSpecial personToCopy = new PersonSpecial();
+        BeanUtils.copyProperties(getPerosn(), personToCopy);
+
+        System.out.println("tagert :" + personToCopy); // 原来的Integer的age copy成String类型的age是不行的。必须要类型一样才能进行copy
+
+    }
+
 }
