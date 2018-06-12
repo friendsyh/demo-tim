@@ -47,7 +47,8 @@ public class BeanUtilsTest extends InitTestData {
         PersonSpecial personToCopy = new PersonSpecial();
         BeanUtils.copyProperties(getPerosn(), personToCopy);
 
-        System.out.println("tagert :" + personToCopy); // 原来的Integer的age copy成String类型的age是不行的。必须要类型一样才能进行copy
+        // 原来的Integer的age copy成String类型的age是不行的。必须要类型一样才能进行copy
+        System.out.println("tagert :" + personToCopy);
 
     }
 
