@@ -22,7 +22,7 @@ public class FunctionTest {
 
         String string = "abc";
         changeStr(string);
-        System.out.println("string change = " + string);
+        System.out.println("string change = " + string); //结果还是abc，因为string s = "mm"，相当于执行String s = new String("mm");
     }
 
     /**

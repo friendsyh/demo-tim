@@ -50,7 +50,7 @@ public class ListTest extends InitTestData {
     @Test
     public void convertArray() throws Exception {
         //arrayList转为数组，list接口没有这个方法。并且toArray一定要传入参数。
-        System.out.println("list to array get array begin.----------------------");
+        System.out.println("list to array get array begin----------------------");
         String[] array =(String[]) testStringList.toArray(new String[testStringList.size()]);
 
         System.out.println("array toString() begin-----------------");
@@ -58,6 +58,8 @@ public class ListTest extends InitTestData {
 
         System.out.println("array to list get list begin-------------");
         List<String> myList = Arrays.asList(array);
+        //Arrays.asList()方法返回的List是不可以被修改的。因为返回的List并不是jdk中的List，而是一个内部类
+//        myList.add("测试List是否可以修改");
     }
 
     /**

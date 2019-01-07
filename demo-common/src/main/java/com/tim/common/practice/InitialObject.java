@@ -1,5 +1,7 @@
 package com.tim.common.practice;
 
+import com.tim.common.domain.Person;
+
 /**
  * 测试一个类的实例化过程
  * Created by tim.syh on 2017/2/13.
@@ -44,6 +46,11 @@ public class InitialObject {
     }
 
     public static void main(String[] args) {
+        //执行自己的类
         new InitialObject().objectFunction();
+
+        //执行其他地方的类，需要连接进来
+        Person person = new Person("tim", 50);
+        System.out.println(person.getName());
     }
 }
