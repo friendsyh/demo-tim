@@ -102,5 +102,17 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
         </dependency>
+
+        <!-- 未来集市的commom工具包 -->
+        <dependency>
+            <groupId>com.doubo.doubo-parent</groupId>
+            <artifactId>doubo-common</artifactId>
+            <version>2.0.20M40</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sibu.sibu-mall-common</groupId>
+            <artifactId>sibu-mall-common</artifactId>
+            <version>1.0.0.57.sibu</version>
+        </dependency>
     </dependencies>
 </project>

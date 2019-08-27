@@ -76,4 +76,9 @@ public class StringTest extends InitTestData {
         System.out.println("test=" + test);
         System.out.println("test=" + test.replace("\"hr_interrupt\"","\"interrupt\""));
     }
+
+    @Test
+    public void testInit() throws Exception {
+        String string;
+    }
 }
