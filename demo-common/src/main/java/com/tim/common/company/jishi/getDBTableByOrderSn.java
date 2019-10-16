@@ -17,7 +17,7 @@ public class getDBTableByOrderSn {
 
     public static void main(String[] args) {
 
-        String identity = "A1908071204421253952896NS";
+        String identity = "B1910091547041206849792JC";
 
         System.out.println("订单：库在-" + calculateDB(identity));
 

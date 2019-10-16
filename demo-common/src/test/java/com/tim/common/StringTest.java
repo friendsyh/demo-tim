@@ -2,6 +2,7 @@ package com.tim.common;
 
 import com.tim.common.pojo.InitTestData;
 
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -80,5 +81,14 @@ public class StringTest extends InitTestData {
     @Test
     public void testInit() throws Exception {
         String string;
+    }
+
+    @Test
+    public void testSplit() throws Exception {
+        String string = "运营商,移动;话费面值,500元";
+//        int first = StringUtils.indexOf(string, "面值");
+//        int second = StringUtils.indexOf(string, "元");
+//        String result = StringUtils.substring(string, first + 3, second);
+        System.out.println(string.substring(string.indexOf("面值") + 3, string.indexOf("元")));
     }
 }
