@@ -21,7 +21,7 @@ public class MapTest extends InitTestData {
 
     @Test
     public void nullTest() throws Exception {
-        testMap = new HashMap<String, Object>();
+        testMap = new HashMap<>();
 //		HashMap<String, Object> map = null;
         testMap.put("null-1",null);
         testMap.put("null-2",null);
@@ -34,7 +34,7 @@ public class MapTest extends InitTestData {
 
     @Test
     public void testInput() throws Exception {
-        HashMap<String, String> hashMap = new HashMap<String, String>();
+        HashMap<String, String> hashMap = new HashMap<>();
         //map的key值相同的时候会出现覆盖的情况
         hashMap.put("tim", "suyanghua");
         hashMap.put("tim", "liaowanying");
