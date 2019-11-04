@@ -14,9 +14,17 @@ import java.util.Set;
  */
 public class MapTest extends InitTestData {
 
+    private Map<String, Object> shareMap;
+
     @Before
     public void init(){
         initObject();
+    }
+
+    @Test
+    public void threadSafeTest() throws Exception {
+
+
     }
 
     @Test
