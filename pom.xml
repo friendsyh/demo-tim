@@ -309,6 +309,13 @@
                 <version>1.3.1</version>
             </dependency>
 
+            <!-- 编译原理做词法分析语法分析的包 -->
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4</artifactId>
+                <version>4.7.1</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
