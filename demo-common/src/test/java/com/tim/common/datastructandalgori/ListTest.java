@@ -76,7 +76,7 @@ public class ListTest extends InitTestData {
         persons.add(p1);
         persons.add(p2);
         persons.add(p3);
-        //这种方式走不通
+        //这种方式走不通，java的ArrayList使用迭代器有问题。
 //		for(Person person : persons){
 //			if(person.getName().equals("lily")){
 //				persons.remove(person);
@@ -93,7 +93,7 @@ public class ListTest extends InitTestData {
     }
 
     /**
-     * List 去重
+     * List 去重。把List转成Set然后再转回来就行了
      */
     @Test
     public void removeDuplicate(){
