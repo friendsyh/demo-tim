@@ -102,6 +102,11 @@
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
         </dependency>
+        <!-- 编译原理做词法分析语法分析的包 -->
+        <dependency>
+            <groupId>org.antlr</groupId>
+            <artifactId>antlr4</artifactId>
+        </dependency>
 
         <!-- 未来集市的commom工具包 -->
 <!--        <dependency>-->
