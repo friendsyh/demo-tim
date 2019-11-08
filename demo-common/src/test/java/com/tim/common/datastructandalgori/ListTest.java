@@ -63,6 +63,30 @@ public class ListTest extends InitTestData {
     }
 
     /**
+     * 使用foreach如果原来对象有add或者remove会抛出异常。使用迭代器模式(foreach语句)移除的时候会抛出异常。我们使用迭代器移除的过程
+     * 1. hasNext()判断是否有下一个元素。这里是通过当前游标cursor == size来判断。
+     * 2. next()方法的时候，会判断到在迭代周期内列表做过修改就会抛ConcurrentModificationException异常。
+     * 解决方案：不能使用foreach就使用for语句啦。经过测试发现size<2的时候可以使用add和remove方法。
+     * @throws Exception
+     */
+    @Test
+    public void foreachElemetException() {
+        ArrayList<Integer> integerArrayList = new ArrayList<>();
+        integerArrayList.add(0);
+        integerArrayList.add(1);
+        integerArrayList.add(2);
+        integerArrayList.add(3);
+        System.out.println("old list:" + integerArrayList);
+        //这样子就抛异常了。
+        for(Integer integer : integerArrayList) {
+            integerArrayList.add(5); //add也会抛出异常
+            integerArrayList.remove(5); //remove也会抛出异常
+        }
+        System.out.println("old list:" + integerArrayList);
+
+    }
+
+    /**
      * 移除一个元素
      * @throws Exception
      */
@@ -77,19 +101,19 @@ public class ListTest extends InitTestData {
         persons.add(p2);
         persons.add(p3);
         //这种方式走不通，java的ArrayList使用迭代器有问题。
-//		for(Person person : persons){
-//			if(person.getName().equals("lily")){
-//				persons.remove(person);
-//			}
-//		}
-        for(int i = persons.size() - 1; i >= 0;i--){
-            Person person = persons.get(i);
+        for(Person person : persons){
             if(person.getName().equals("lily")){
                 persons.remove(person);
             }
         }
+//        for(int i = persons.size() - 1; i >= 0;i--){
+//            Person person = persons.get(i);
+//            if(person.getName().equals("lily")){
+//                persons.remove(person);
+//            }
+//        }
 
-        System.out.println(persons.size());
+        System.out.println(persons);
     }
 
     /**

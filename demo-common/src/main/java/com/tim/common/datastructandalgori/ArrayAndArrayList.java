@@ -18,7 +18,13 @@ public class ArrayAndArrayList {
         //arrayList是线程不安全的。vector是线程安全的。比如size()方法，vector就是加了一个synchronized关键字。
         ArrayList<Integer> arrayList1 = new ArrayList<>();
         arrayList1.size();
-        arrayList1.add(5);
+        arrayList1.add(1);
+        arrayList1.add(2);
+        arrayList1.add(3);
+        for (Integer integer : arrayList1) {
+            arrayList1.remove(2);
+        }
+        System.out.println(arrayList1);
 
         Vector<Integer> vector1 = new Vector<>();
         vector1.size();
