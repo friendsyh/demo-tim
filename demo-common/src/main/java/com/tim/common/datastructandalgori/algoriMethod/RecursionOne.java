@@ -12,8 +12,8 @@ package com.tim.common.datastructandalgori.algoriMethod;
 public class RecursionOne {
 
     public static void main(String[] args) {
-//        RecursionOne.fibonacci(12);
-        RecursionOne.niTui(48);
+        RecursionOne.fibonacci(12);
+//        RecursionOne.niTui(48);
     }
 
     /**
@@ -39,7 +39,7 @@ public class RecursionOne {
 
         //打印数列
         for(int i = 1; i <= mouth;i++){
-            System.out.println("fibonacci array[" + i + "]=:" + fibonacci[i]);
+            System.out.println("fibonacci array[" + i + "]=" + fibonacci[i]);
         }
     }
 

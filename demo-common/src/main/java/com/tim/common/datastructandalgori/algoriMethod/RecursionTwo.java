@@ -5,8 +5,8 @@ package com.tim.common.datastructandalgori.algoriMethod;
  * 发现递归和递推首先都需要用数学去推，退出规律，然后用代码实现规律。
  *
  * 三要素
- * 1. 递归中每次循环都必须使问题规模有所缩小。
- * 2. 递归操作的每两步都是有紧密的联系，如在“递归”的“归操作时”，前一次的输出就是后一次的输入。
+ * 1. 一个问题可以分解为几个子问题的解
+ * 2. 这个问题和分解之后的子问题，除了数据规模不同，求解思路完全一样
  * 3. 当子问题的规模足够小时，必须能够直接求出该规模问题的解，其实也就是必须要有结束递归的条件。
  *
  * 注意：
@@ -20,7 +20,7 @@ public class RecursionTwo {
 
     public static void main(String[] args) {
 //        System.out.println(RecursionTwo.fact(5)); //5!=120
-//        System.out.println(RecursionTwo.fact(50)); //50!=-3258495067890909184,已经超出了long类型的范围
+        System.out.println(RecursionTwo.fact(50)); //50!=-3258495067890909184,已经超出了long类型的范围
 //        System.out.println(RecursionTwo.fact(100000)); //100000!=java.lang.StackOverflowError,堆栈异常.
 
 //        RecursionTwo.convertToBinary(63);//111111
@@ -32,7 +32,7 @@ public class RecursionTwo {
 //        System.out.println(RecursionTwo.convertToBinaryWithRecursion(64));//1000000
 //        System.out.println(RecursionTwo.convertToBinaryWithRecursion(100));//1100100
 
-        hanoi(3, "A", "C", "B");
+//        hanoi(3, "A", "C", "B");
     }
 
     /**

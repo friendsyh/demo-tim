@@ -23,10 +23,10 @@ public class Sort {
 //		selectSort(array);
 //		insertSort(array);
 		shellSort(array);
+//		mergeSort(array, 0, array.length - 1);
+//		quickSort(array, 0, array.length - 1);
 //		radixSort(array);
 //		heapSort(array);
-//		quickSort(array, 0, array.length - 1);
-//		mergeSort(array, 0, array.length - 1);
 		System.out.println("after sorted:\n" + Arrays.toString(array));
 	}
 	
@@ -90,6 +90,7 @@ public class Sort {
 			//需要插入的array[i]元素，默认前面的array[0]——array[i-1]都已经排序好了
 			key = array[i];
 			//遍历前面排序好的array[j]——array[0]，如果发现key < a[j]，那么将a[j]后移一位到a[j+1],到最后会腾出一个位置。
+            //这个地方巧妙的从排序好最大的也就是数组最末尾的数开始遍历。可以直接实现插入数组后后面数据都要移位的操作。如果从0开始遍历，处理起来就麻烦一些
 			for(j = i - 1;j >= 0 && key < array[j];j--){
 				array[j+1] = array[j];
 			}
@@ -129,6 +130,64 @@ public class Sort {
 			System.out.println(Arrays.toString(array));
 		}
 	}
+
+    /**
+     * 归并排序算法
+     * 归并（Merge）排序法是将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，
+     * 每个子序列是有序的。然后再把有序子序列合并为整体有序序列。
+     * 归并排序是不稳定的，时间复杂度为O(nlogn)
+     * @param array
+     * @param left
+     * @param right
+     */
+    public static void mergeSort(int[] array, int left, int right) {
+        if(left<right){
+            int middle = (left + right) / 2;
+            //对左边进行递归
+            mergeSort(array, left, middle);
+            //对右边进行递归
+            mergeSort(array, middle+1, right);
+            //合并
+            merge(array, left, middle, right);
+        }
+    }
+
+    /**
+     * 合并两个已经排好序的数组。
+     * @param array
+     * @param left 第一个数组的起点
+     * @param middle 第一个数组的终点，middle+1 为第二个数组的起点
+     * @param right 第二个数组的终点
+     */
+    private static void merge(int[] array, int left, int middle, int right) {
+        int[] tmpArr = new int[array.length];
+        int mid = middle+1; //右边的起始位置
+        int tmp = left;
+        int third = left;
+        //这个地方用for循环也可以，总共是有两个变量。
+        while(left <= middle && mid <= right){
+            //从两个数组中选取较小的数放入中间数组
+            if(array[left] <= array[mid]){
+                tmpArr[third++] = array[left++];
+            }else{
+                tmpArr[third++] = array[mid++];
+            }
+        }
+        //将剩余的部分放入中间数组
+        while(left <= middle){
+            tmpArr[third++] = array[left++];
+        }
+        while(mid <= right){
+            tmpArr[third++] = array[mid++];
+        }
+        //将中间数组复制回原数组
+        while(tmp <= right){
+            array[tmp] = tmpArr[tmp++];
+        }
+
+        //打印每次分区后的结果
+        System.out.println(Arrays.toString(array));
+    }
 	
 	/**
 	 * 快速排序
@@ -189,64 +248,7 @@ public class Sort {
 		// 将这个分区结束时的坐标i返回，用于下次执行时当做前分区的尾坐标，当做后分区的头坐标
 		return low;
 	}
-	
-    /**
-	 * 归并排序算法
-	 * 归并（Merge）排序法是将两个（或两个以上）有序表合并成一个新的有序表，即把待排序序列分为若干个子序列，
-	 * 每个子序列是有序的。然后再把有序子序列合并为整体有序序列。
-	 * 归并排序是不稳定的，时间复杂度为O(nlogn)
-	 * @param array
-	 * @param left
-	 * @param right
-	 */
-    public static void mergeSort(int[] array, int left, int right) {
-        if(left<right){
-            int middle = (left + right) / 2;
-            //对左边进行递归
-            mergeSort(array, left, middle);
-            //对右边进行递归
-            mergeSort(array, middle+1, right);
-            //合并
-            merge(array, left, middle, right);
-        }
-    }
 
-    /**
-     * 合并两个已经排好序的数组。
-     * @param array
-     * @param left 第一个数组的起点
-     * @param middle 第一个数组的终点，middle+1 为第二个数组的起点
-     * @param right 第二个数组的终点
-     */
-    private static void merge(int[] array, int left, int middle, int right) {
-        int[] tmpArr = new int[array.length];
-        int mid = middle+1; //右边的起始位置
-        int tmp = left;
-        int third = left;
-        while(left <= middle && mid <= right){
-            //从两个数组中选取较小的数放入中间数组
-            if(array[left] <= array[mid]){
-                tmpArr[third++] = array[left++];
-            }else{
-                tmpArr[third++] = array[mid++];
-            }
-        }
-        //将剩余的部分放入中间数组
-        while(left <= middle){
-            tmpArr[third++] = array[left++];
-        }
-        while(mid <= right){
-            tmpArr[third++] = array[mid++];
-        }
-        //将中间数组复制回原数组
-        while(tmp <= right){
-            array[tmp] = tmpArr[tmp++];
-        }
-        
-        //打印每次分区后的结果
-		System.out.println(Arrays.toString(array));
-    }
-    
     /**
      * 基数排序
      * 将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。
