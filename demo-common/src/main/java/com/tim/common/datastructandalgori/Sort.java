@@ -155,9 +155,9 @@ public class Sort {
     /**
      * 合并两个已经排好序的数组。
      * @param array
-     * @param left 第一个数组的起点
-     * @param middle 第一个数组的终点，middle+1 为第二个数组的起点
-     * @param right 第二个数组的终点
+     * @param left 第一个数组的起点索引
+     * @param middle 第一个数组的终点索引，middle+1 为第二个数组的起点索引
+     * @param right 第二个数组的终点索引
      */
     private static void merge(int[] array, int left, int middle, int right) {
         int[] tmpArr = new int[array.length];
@@ -371,5 +371,5 @@ public class Sort {
         int tmp=array[i];  
         array[i]=array[j];  
         array[j]=tmp;  
-    } 
+    }
 }
