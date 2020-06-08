@@ -6,7 +6,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 字符串相关测试
@@ -17,6 +23,18 @@ public class StringTest extends InitTestData {
     @Before
     public void init() {
         initObject();
+    }
+
+    @Test
+    public void testStringAppend() throws Exception {
+        String ss1 = "user_info.t0.name.user_info";
+        String[] array = ss1.split("\\.");
+        List<String> list = Arrays.asList(array);
+        Set<String> set = new HashSet<>(list);
+
+        System.out.println(StringUtils.join(array, ","));
+        System.out.println(StringUtils.join(list, ","));
+        System.out.println(StringUtils.join(set, ","));
     }
 
     @Test
@@ -38,6 +56,28 @@ public class StringTest extends InitTestData {
         String ss = "http://baidu.com?abc=123";
         System.out.println(ss.substring( 0,ss.indexOf("?"))); // http://baidu.com
         System.out.println(ss.substring(ss.indexOf("?"))); // ?abc=123
+
+        String sss = "file:/opt/seiois/mls-server/python/run.py";
+        if(sss.startsWith("file")){
+            System.out.println(sss.split(":")[1]);
+        } else{
+            System.out.println(sss);
+        }
+
+        String ss1 = "user_info.t0.name";
+        System.out.println(ss1.substring(ss1.indexOf(".") + 1));
+        System.out.println(ss1.substring(ss1.lastIndexOf(".") + 1));
+        System.out.println(ss1.substring(0, ss1.indexOf(".")));
+    }
+
+    @Test
+    public void getYinHao() throws Exception {
+        String str="SPARK_EXECUTOR_CORES=\"4\" #Number of cores for the workers (Default: 1).";
+        Pattern p = Pattern.compile("\"(.*?)\"");
+        Matcher m = p.matcher(str);
+        if(m.find()){
+            System.out.println(m.group().trim().replace("\"","")+"");
+        }
     }
 
     @Test
