@@ -8,6 +8,7 @@ import com.tim.common.domain.Point;
 import com.tim.common.domain.Student;
 import com.tim.common.domain.Teacher;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -62,6 +63,11 @@ public class InitTestData {
         testMap.put("stringKey", "value1");
         testMap.put("objKey", perosn);
         testMap.put("listObjKey", testStudentList);
+
+        testStringList = new ArrayList<>();
+        testStringList.add("suyanghua");
+        testStringList.add("lily");
+        testStringList.add("susu");
 
         perosn = new Person("tim-苏那个世界", 25);
         point = new Point(2,3);

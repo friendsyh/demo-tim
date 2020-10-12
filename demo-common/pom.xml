@@ -108,6 +108,12 @@
             <artifactId>antlr4</artifactId>
         </dependency>
 
+        <!-- 编译原理做词法分析语法分析的包 -->
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+        </dependency>
+
         <!-- 未来集市的commom工具包 -->
 <!--        <dependency>-->
 <!--            <groupId>com.doubo.doubo-parent</groupId>-->

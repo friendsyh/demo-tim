@@ -316,6 +316,18 @@
                 <version>4.7.1</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.opencsv</groupId>
+                <artifactId>opencsv</artifactId>
+                <version>5.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>0.9.11</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

@@ -120,7 +120,11 @@ public class StringTest extends InitTestData {
 
     @Test
     public void testInit() throws Exception {
-        String string;
+        String string = null;
+//        System.out.println(string.isEmpty());  //会报空指针异常呢
+        System.out.println(StringUtils.isEmpty(string));
+        System.out.println(StringUtils.join(testStringList, "&&"));
+        System.out.println(String.join("&&", testStringList));
     }
 
     @Test
@@ -130,5 +134,9 @@ public class StringTest extends InitTestData {
 //        int second = StringUtils.indexOf(string, "元");
 //        String result = StringUtils.substring(string, first + 3, second);
         System.out.println(string.substring(string.indexOf("面值") + 3, string.indexOf("元")));
+
+        String esPath = "hdfs://vm16:8020/tmp/rulefind/135/partition/part-00001";
+        String index = esPath.substring(esPath.lastIndexOf("part-") + 5, esPath.length());
+        System.out.println(index);
     }
 }

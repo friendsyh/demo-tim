@@ -2,6 +2,8 @@ package com.tim.common;
 
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 /**
  * 基本数据类型测试
  * Created by tim.syh on 2017/1/9.
@@ -45,5 +47,10 @@ public class BasicDataTypeTest {
         System.out.println("二进制：d1=" + Double.doubleToLongBits(d1) + ",d2=" + Double.doubleToLongBits(d2) + ",d3=" + Double.doubleToLongBits(d3));
         System.out.println(d1 - d2); //1.0-0.9=0.09999999999999998, 因为十进制的0.9转成二进制本身是一个无限循环的东西。所以计算出来的也是一个无限循环的东西。
         System.out.println(d1 - d4); //1.0-0.8=0.2
+    }
+
+    @Test
+    public void testBigDecimal() throws Exception {
+        System.out.println(BigDecimal.valueOf((float) 2 / 64).setScale(2, BigDecimal.ROUND_UP).doubleValue());
     }
 }
