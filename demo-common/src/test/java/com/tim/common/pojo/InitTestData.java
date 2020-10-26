@@ -71,11 +71,15 @@ public class InitTestData {
 
         perosn = new Person("tim-苏那个世界", 25);
         point = new Point(2,3);
+
         testStudentList = Lists.newArrayList();
         student = new Student("tim-苏那个世界", 28, "湖南师范大学");
+        Student student1 = new Student("susu-小螃蟹", 5, "清华大学");
         Student student2 = new Student("lily-小怪兽", 22, "湖南师范大学");
         testStudentList.add(student);
+        testStudentList.add(student1);
         testStudentList.add(student2);
+
         teacher = new Teacher("董新汉院长", 50, "湖南师范大学", testStudentList, point);
 
         resultDO = ResultDO.successResult(point);

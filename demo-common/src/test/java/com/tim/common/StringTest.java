@@ -139,4 +139,24 @@ public class StringTest extends InitTestData {
         String index = esPath.substring(esPath.lastIndexOf("part-") + 5, esPath.length());
         System.out.println(index);
     }
+
+    @Test
+    public void testReplace() throws Exception {
+        String string = "editor 's notes";
+        System.out.println(string.replace("'", "''"));
+    }
+
+    @Test
+    public void testReg() throws Exception {
+        String columnType = "varchar";
+        if ("STRING".equals(columnType.toUpperCase())
+                || "VARCHAR".equals(columnType.toUpperCase())
+                || "TEXT".equals(columnType.toUpperCase())
+                || columnType.matches("^varchar\\([1-9][0-9]*\\)")    //varchar(n)
+                || columnType.matches("^char\\([1-9][0-9]*\\)")){
+            System.out.println("OK");
+        } else {
+            System.out.println("ERROR");
+        }
+    }
 }

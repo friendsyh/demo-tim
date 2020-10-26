@@ -3,11 +3,13 @@ package com.tim.common.utils;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.io.Reader;
 import java.io.StringReader;
 
 public class IODemo {
@@ -84,21 +86,41 @@ public class IODemo {
 	}
 
 	/*---------------------------从文件中逐行读入数据---------------------------------------------------*/
-	public String readFile(String path) throws IOException {
-
-		BufferedReader in = new BufferedReader(new FileReader(path));
-		String str = "";
-		String str1 = "";
-		try {
-			while ((str1 = in.readLine()) != null) {
-				str += str1 + "\n";
+	public String readFileByLine(String path) throws IOException {
+		StringBuffer content = new StringBuffer();
+		try(BufferedReader in = new BufferedReader(new FileReader(path))) {
+            String tempLine = "";
+			while ((tempLine = in.readLine()) != null) {
+                content.append(tempLine).append("\n");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		in.close();
-		return str;
+		return content.toString();
 	}
+
+    /*---------------------------从文件中逐行读入数据---------------------------------------------------*/
+    public void readFileByChars(String path) throws IOException {
+        File file = new File(path);
+        Reader reader = null;
+        try {
+            System.out.println("以字符为单位读取文件内容，一次读一个字节：");
+            // 一次读一个字符
+            reader = new InputStreamReader(new FileInputStream(file));
+            int tempchar;
+            while ((tempchar = reader.read()) != -1) {
+                // 对于windows下，\r\n这两个字符在一起时，表示一个换行。
+                // 但如果这两个字符分开显示时，会换两次行。
+                // 因此，屏蔽掉\r，或者屏蔽\n。否则，将会多出很多空行。
+                if (((char) tempchar) != '\r') {
+                    System.out.print((char) tempchar);
+                }
+            }
+            reader.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 	
 	/*---------------------------从字符串中把字符一个个找出---------------------------------------------------*/
 	public void getCharFromString(String str) throws IOException {

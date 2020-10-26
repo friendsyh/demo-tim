@@ -20,7 +20,7 @@ public interface ICategory {
 
 	String getName();
 
-	void add(ICategory category);
+    void add(ICategory category);
 
 	void remove(ICategory category);
 

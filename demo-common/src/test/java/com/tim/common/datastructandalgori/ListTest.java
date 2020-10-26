@@ -1,5 +1,6 @@
 package com.tim.common.datastructandalgori;
 
+import com.tim.common.domain.Student;
 import com.tim.common.pojo.InitTestData;
 import com.tim.common.domain.Person;
 
@@ -8,6 +9,8 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
@@ -122,8 +125,23 @@ public class ListTest extends InitTestData {
     @Test
     public void removeDuplicate(){
         System.out.println("before removeDuplicate:" + testStringList);
-        Set<String> set = new HashSet<String>(testStringList);
-        testStringList = new ArrayList<String>(set);
+        Set<String> set = new HashSet<>(testStringList);
+        testStringList = new ArrayList<>(set);
         System.out.println("after removeDuplicate:" + testStringList);
+    }
+
+    @Test
+    public void sortedLamda(){
+        initObject();
+        System.out.println("before sorted:" + testStudentList);
+//        testStudentList.sort((s1, s2) -> s1.getAge().compareTo(s2.getAge())); //按照年龄从小到大排序
+//        testStudentList.sort((s1, s2) -> s2.getAge().compareTo(s1.getAge())); //按照年龄从大到小排序
+
+//        testStudentList.sort((s1, s2) -> Integer.compare(s1.getAge(), s2.getAge())); //按照年龄从小到大排序
+        testStudentList.sort((s1, s2) -> Integer.compare(s2.getAge(), s1.getAge())); //按照年龄从大到小排序
+
+//        Collections.sort(testStudentList, Comparator.comparing(Student::getAge)); //从小到达排序
+
+        System.out.println("after sorted:" + testStudentList);
     }
 }
