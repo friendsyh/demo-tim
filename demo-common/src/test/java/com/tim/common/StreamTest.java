@@ -76,7 +76,7 @@ public class StreamTest extends InitTestData {
     }
 
     @Test
-    public void testStream() throws Exception {
+    public void testStreamReduce() throws Exception {
         //先过滤，然后转为map. key=schoolName,value=Student
 //        Map<String, Student> rlt1 = testStudentList.stream().filter(item -> item.getAge() > 10).collect(Collectors.toMap(Student::getSchoolName,
 //                item -> item)); //如果有重复的key会报错
