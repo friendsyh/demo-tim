@@ -11,9 +11,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -143,5 +145,20 @@ public class ListTest extends InitTestData {
 //        Collections.sort(testStudentList, Comparator.comparing(Student::getAge)); //从小到达排序
 
         System.out.println("after sorted:" + testStudentList);
+    }
+
+    /**
+     * list 转 map之后还会保持原来的顺序吗。
+     * 顺序肯定会有变化，因为map是根据hash进行保存的
+     */
+    @Test
+    public void list2MapSort() {
+        Map<String, String> studentMap = new HashMap<>();
+        for(Student student : testStudentList) {
+            studentMap.put(student.getName(), student.toString());
+        }
+
+        System.out.println("OK");
+
     }
 }

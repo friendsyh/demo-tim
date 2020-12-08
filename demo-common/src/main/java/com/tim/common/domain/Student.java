@@ -19,6 +19,6 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return getName();
+        return String.join("-", getName(), getAge().toString(), getSchoolName());
     }
 }

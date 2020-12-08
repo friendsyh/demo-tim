@@ -68,17 +68,25 @@ public class InitTestData {
         testStringList.add("suyanghua");
         testStringList.add("lily");
         testStringList.add("susu");
+        testStringList.add("rongrong");
+        testStringList.add("biaobiao");
 
         perosn = new Person("tim-苏那个世界", 25);
         point = new Point(2,3);
 
         testStudentList = Lists.newArrayList();
-        student = new Student("tim-苏那个世界", 28, "湖南师范大学");
-        Student student1 = new Student("susu-小螃蟹", 5, "清华大学");
-        Student student2 = new Student("lily-小怪兽", 22, "湖南师范大学");
+        student = new Student("tim", 28, "湖南师范大学");
+        Student student1 = new Student("susu", 5, "清华大学");
+        Student student2 = new Student("lily", 22, "湖南师范大学");
+        Student student3 = new Student("rongrong", 25, "大连海事大学");
+        Student student4 = new Student("biaobiao", 25, "湖南理工大学");
+        Student student5 = new Student("高晓松", 90, "清华大学");
         testStudentList.add(student);
         testStudentList.add(student1);
         testStudentList.add(student2);
+        testStudentList.add(student3);
+        testStudentList.add(student4);
+        testStudentList.add(student5);
 
         teacher = new Teacher("董新汉院长", 50, "湖南师范大学", testStudentList, point);
 

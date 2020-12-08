@@ -1,14 +1,18 @@
 package com.tim.common;
 
+import com.tim.common.domain.Student;
 import com.tim.common.pojo.InitTestData;
 
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -35,6 +39,8 @@ public class StringTest extends InitTestData {
         System.out.println(StringUtils.join(array, ","));
         System.out.println(StringUtils.join(list, ","));
         System.out.println(StringUtils.join(set, ","));
+        System.out.println(ss1.substring(0, ss1.indexOf(".")));
+        System.out.println(ss1.substring(ss1.lastIndexOf(".") + 1));
     }
 
     @Test
@@ -157,6 +163,47 @@ public class StringTest extends InitTestData {
             System.out.println("OK");
         } else {
             System.out.println("ERROR");
+        }
+    }
+
+    /**
+     * 测试数据库类型表达式
+     */
+    @Test
+    public void test() {
+        Assert.assertEquals("String", setType("varchar"));
+        Assert.assertEquals("String", setType("varchar(20)"));
+        Assert.assertEquals("String", setType("varchar(500)"));
+        Assert.assertEquals("String", setType("VARCHAR"));
+        Assert.assertEquals("String", setType("VARCHAR(20)"));
+        Assert.assertEquals("String", setType("VARCHAR(500)"));
+        Assert.assertEquals("String", setType("Varchar(500)"));
+    }
+
+    public static String setType(String columnType) {
+        if ("STRING".equals(columnType.toUpperCase())
+                || "VARCHAR".equals(columnType.toUpperCase())
+                || "CHAR".equals(columnType.toUpperCase())
+                || "TEXT".equals(columnType.toUpperCase())
+                || columnType.toLowerCase().matches("^varchar\\([1-9][0-9]*\\)")    //varchar(n)
+                || columnType.toLowerCase().matches("^char\\([1-9][0-9]*\\)")){
+            return "String";
+        } else if ("DOUBLE".equals(columnType.toUpperCase())
+                || "FLOAT".equals(columnType.toUpperCase())
+                || "DECIMAL".equals(columnType.toUpperCase())
+                || columnType.toLowerCase().matches("^float[48]")) {      //float4 float8
+            return "Decimal";
+        } else if ("INTEGER".equals(columnType.toUpperCase())
+                || "INT".equals(columnType.toUpperCase())
+                || "TINYINT".equals(columnType.toUpperCase())
+                || "SMALLINT".equals(columnType.toUpperCase())
+                || "MEDIUMINT".equals(columnType.toUpperCase())
+                || "BIGINT".equals(columnType.toUpperCase())
+                || columnType.toLowerCase().matches("^int[248]")             //int2 int4 int8
+                || columnType.toLowerCase().matches("^serial[248]")) {      //serial2 serial4 serial8
+            return "Long";
+        } else {
+            return "String";
         }
     }
 }
