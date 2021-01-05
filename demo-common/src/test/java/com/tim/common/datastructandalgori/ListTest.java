@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.Vector;
 
 /**
  * Created by tim.syh on 2017/1/8.
@@ -36,6 +37,13 @@ public class ListTest extends InitTestData {
         testStringList.add("baby");
         testStringList.add("baby1");
         testStringList.add("baby2");
+    }
+
+    @Test
+    public void testThreadSafe() {
+        //arrayList是线程不安全的。vector是线程安全的。比如size()方法，vector就是加了一个synchronized关键字。
+        Vector<Integer> vector1 = new Vector<>();
+        vector1.size();
     }
 
     @Test
@@ -161,4 +169,5 @@ public class ListTest extends InitTestData {
         System.out.println("OK");
 
     }
+
 }
