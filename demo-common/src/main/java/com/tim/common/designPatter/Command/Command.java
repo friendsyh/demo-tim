@@ -14,4 +14,5 @@ public interface Command {
      * 撤销命令
      */
     void undo();
+
 }
