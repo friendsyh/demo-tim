@@ -97,6 +97,7 @@ public class Sort {
 			array[j+1] = key;
 			//用来看整个排序的过程
 			System.out.println(Arrays.toString(array));
+
 		}
 	}
 	
