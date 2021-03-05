@@ -33,6 +33,16 @@ public class BasicDataTypeTest {
         System.out.println(Integer.MIN_VALUE);
         System.out.println(Long.MAX_VALUE);
         System.out.println(Long.MIN_VALUE);
+
+        int number = 17;
+        System.out.println("number++ % 5 = " + number++ % 5);  //结果为2,计算完毕之后再会++操作变成18
+    }
+
+    @Test
+    public void testFloat() throws Exception {
+//        float f1 = 1.1; //错误的写法,必须要添加f
+        float f2 = 1.1f; //这个必须要添加f,如果不添加f,就默认是double类型了，会丢失精度
+        double d = 1.1; //这个可以不用加d
     }
 
     @Test
@@ -52,5 +62,11 @@ public class BasicDataTypeTest {
     @Test
     public void testBigDecimal() throws Exception {
         System.out.println(BigDecimal.valueOf((float) 2 / 64).setScale(2, BigDecimal.ROUND_UP).doubleValue());
+    }
+
+    @Test
+    public void testChar() throws Exception {
+        char c = '你';
+        char[] charArray = "abcdfwleg".toCharArray();
     }
 }

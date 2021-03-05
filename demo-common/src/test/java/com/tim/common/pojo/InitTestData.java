@@ -70,6 +70,7 @@ public class InitTestData {
         testStringList.add("susu");
         testStringList.add("rongrong");
         testStringList.add("biaobiao");
+        testStringList.add("suyanghua");
 
         perosn = new Person("tim-苏那个世界", 25);
         point = new Point(2,3);

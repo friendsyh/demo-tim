@@ -1,5 +1,13 @@
 package com.tim.common.datastructandalgori;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
 /**
  * 算法大全
  * @author 苏阳华
@@ -10,8 +18,66 @@ public class Algori {
 
 	public static void main(String[] args) {
 //		buy100Chicken_g();
-		System.out.println("the total peach = " + monkeyEatPeach(1));
+//		System.out.println("the total peach = " + monkeyEatPeach(1));
+
+		String data = "aavzcadfdsfsdhshgWasdfasdf";
+        System.out.println(getMaxCountCharInString(data));
 	}
+
+    /**
+     * 一个字符串中可能包含a~z中的多个字符，如有重复，如String data="aavzcadfdsfsdhshgWasdfasdf"
+     * 求出现次数最多的那个字母及次数，若出现最多的字母有多个就一起输出（区分大小写）
+     * @param s
+     * @return 最多的字符串以及个数
+     */
+	public static String getMaxCountCharInString(String s) {
+	    if(StringUtils.isEmpty(s)) {
+	        throw new RuntimeException("字符串为空");
+        }
+
+	    //统计每个字符的频率,用普通方法
+        Map<Character, Integer> charCountMap = new HashMap<>();
+	    char[] charArray = s.toCharArray();
+ 	    for(Character character : charArray) {
+            if(charCountMap.containsKey(character)) {
+                charCountMap.put(character, charCountMap.get(character) + 1);
+            } else {
+                charCountMap.put(character, 1);
+            }
+        }
+
+// 	    //对字符频率的map按照频率从大到小排序
+//        List<Map.Entry<Character, Integer>> entyList = new ArrayList<>();
+// 	    for(Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+//            entyList.add(entry);
+//        }
+//        entyList.sort((v1,v2) -> v2.getValue() - v1.getValue());
+// 	    Integer maxCount = entyList.get(0).getValue();
+//
+// 	    //获取最大字符频率的列表以及count数量
+// 	    List<String> maxCharList = new ArrayList<>();
+//        for(Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+//            if(entry.getValue().equals(maxCount)) {
+//                maxCharList.add(entry.getKey().toString());
+//            }
+//        }
+//        return String.join(",", maxCharList) + "----" + maxCount;
+
+
+        //第二种排序方法,使用TreeMap进行排序，然后获取treeMap的第一个元素即可。
+        TreeMap<Integer, List<String>> rltMap = new TreeMap<>((v1,v2) -> v2 - v1);
+        for(Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
+            if(rltMap.containsKey(entry.getValue())) {
+                rltMap.get(entry.getValue()).add(entry.getKey().toString());
+            } else {
+                List<String> sameCountCharList = new ArrayList<>();
+                sameCountCharList.add(entry.getKey().toString());
+                rltMap.put(entry.getValue(), sameCountCharList);
+            }
+        }
+
+	    return String.join(",", rltMap.firstEntry().getValue()) + "----" + rltMap.firstKey();
+    }
 	
 	/**
 	 * 百钱买百鸡.  公鸡5文钱一只，母鸡3文钱一只，小鸡3只一文钱，
@@ -67,5 +133,26 @@ public class Algori {
 			return 2 * monkeyEatPeach(day + 1) + 2;
 		}
 	}
+
+
+//    /**
+//     * 一副牌(不包含大王小王)总计52张，随机抽取5张，判断是不是同花顺
+//     * @return
+//     */
+//    public static boolean isFlush() {
+//
+//    }
+//
+//    class PaperCard {
+//        //点数
+//        private int num;
+//
+//        //花色
+//        private String color;
+//
+//        public String toString() {
+//            return color + num;
+//        }
+//    }
 
 }

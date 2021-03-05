@@ -35,7 +35,7 @@ public class IOTest extends InitTestData {
             for (String key : testMap.keySet()) {
                 fileWritter.write(key + "=" + testMap.get(key) + "\n");
             }
-        }catch(IOException e){
+        } catch(IOException e){
             logger.error("#### PredicateConfig initDataFromDB and Write2File exception.", e);
         }
     }
