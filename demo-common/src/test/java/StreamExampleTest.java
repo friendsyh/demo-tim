@@ -7,24 +7,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
-import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 /**
- * 集合Stream各种测试
+ * 集合Stream各种举例测试
  * Created by tim.syh on 2017/1/8.
  */
-public class StreamCollectTest extends InitTestData {
+public class StreamExampleTest extends InitTestData {
 
-    private static final Logger logger = LoggerFactory.getLogger(StreamCollectTest.class);
+    private static final Logger logger = LoggerFactory.getLogger(StreamExampleTest.class);
 
     @Before
     public void init() {
@@ -82,7 +77,7 @@ public class StreamCollectTest extends InitTestData {
 
     @Test
     public void counting() {
-        // 将学生姓名合并成以,分隔的字符串, 再通过 Function 对象将字符串转成 String[] 对象
+        // 年龄大于 20 的学生人数统计
         Long count = testStudentList
                 .stream()
                 .filter(student -> student.getAge() > 20)

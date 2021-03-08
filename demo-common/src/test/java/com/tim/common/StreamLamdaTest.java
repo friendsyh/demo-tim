@@ -1,10 +1,8 @@
 package com.tim.common;
 
-import com.tim.common.domain.Person;
 import com.tim.common.domain.Student;
 import com.tim.common.pojo.InitTestData;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +12,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -61,7 +58,7 @@ public class StreamLamdaTest extends InitTestData {
         //对对象进行按照key值进行分组
         Map<String, List<Student>> rlt3 = testStudentList.stream().collect(Collectors.groupingBy(Student::getSchoolName));
 
-        //获取每个字符串出现的次数
+        //获取每个字符串出现的次数。groupingBy的函数第一个是根据哪种key进行组合，第二个对每个组合进行count求值
         Map<String, Long> map4 = testStringList.stream().collect(Collectors.groupingBy(item -> item, Collectors.counting()));
         //counting就是求元素的个数
         Long collect = testStringList.stream().collect(Collectors.counting());
@@ -127,7 +124,7 @@ public class StreamLamdaTest extends InitTestData {
 
     /**
      * forEach()是否可以修改元素的值
-     * 1. 如果是基本数据类型是不能进行修改的
+     * 1. 如果是基本数据类型（包括String）是不能进行修改的
      * 2. 如果是引用类型可以修改单个元素的值，但是不能添加和删除元素，就和java的foreach循环一样的，用迭代器实现的
      * @throws Exception
      */
@@ -144,7 +141,12 @@ public class StreamLamdaTest extends InitTestData {
 //        players.forEach(System.out::println); //普通打印方式
         players.stream().filter(item->item.startsWith("R")).forEach((item) -> System.out.print(item + ";")); //普通打印方式
 
+        //改变不了testStringList 列表的值，和基本数据类型是一致的
+        testStringList.forEach(item -> item.concat(" is OK!!"));
+        //直接改变了student对象的age,都乘以2了
+        testStudentList.forEach(item -> item.setAge(item.getAge() * 2));
 
+        System.out.println("OK");
     }
 
     @Test
@@ -160,6 +162,8 @@ public class StreamLamdaTest extends InitTestData {
 
         //进行遍历
         map.forEach((k,v)-> System.out.println("item:" + k + ",value:" + v));
+        //基本数据类型, v=v+100 是产生不了作用的
+        map.forEach((k,v)-> v = v + 100);
 
         //把key转成一个List，并且进行排序
         List<String> rlt1 = map.keySet().stream().filter(item->item.length() < 2).sorted(Comparator.reverseOrder()).collect(Collectors.toList());
