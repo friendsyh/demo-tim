@@ -280,7 +280,7 @@
             <dependency>
                 <groupId>com.thoughtworks.xstream</groupId>
                 <artifactId>xstream</artifactId>
-                <version>1.4.9</version>
+                <version>1.4.16</version>
             </dependency>
 
             <!-- 用来注入使用的包-->
