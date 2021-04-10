@@ -25,13 +25,20 @@ public class HeapTest extends InitTestData {
         initObject();
     }
 
+    /**
+     * 用jdk自带的PriorityQueue对象构造大顶堆
+     * PriorityQueue：优先队列，每次poll出来的元素是最小(默认是最小)的元素。内部是一个堆结构，但是用数组存储。
+     * add()和offer()方法是一样的，增加一个元素，同时调整堆结构
+     * remove()和poll()方法一样的效果，获取根节点元素，同时移除该元素，调整堆结构
+     * element()和peek()方法一样的效果，获取但是不删除首元素
+     */
     @Test
     public void testBuildMaxHeapByJDK() {
         int[] array = {49,385,10,890,5,76,1458,38};
         System.out.println("before sorted:" + Arrays.toString(array));
 
         //构造一个大根堆进行排序
-        Queue<Integer> sortedQueue = new PriorityQueue<>((v1, v2) -> v2 - v1);
+        PriorityQueue<Integer> sortedQueue = new PriorityQueue<>((v1, v2) -> v2 - v1);
         for(int i = 0; i < array.length; i++) {
             sortedQueue.offer(array[i]);
         }
@@ -52,7 +59,7 @@ public class HeapTest extends InitTestData {
         for (int i = array.length / 2; i >= 0; i--) {
             buildMaxHeap(array, i);
         }
-        System.out.println("after sorted:" + Arrays.toString(array));
+        System.out.println("after sorted:" + Arrays.toString(array)); //打印出来的数组是一个堆，但是没有排序好。如果要排序好，需要每次取跟节点
     }
 	
     /**

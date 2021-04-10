@@ -53,15 +53,19 @@ public class MapTest extends InitTestData {
         testMap.put("stringArray",stringArray);
         System.out.println(testMap);
         //基本遍历
-        System.out.println("foreach map begin----------------");
+        System.out.println("foreach by keySet----------------");
         for(String key : testMap.keySet()) {
             System.out.println(key + " =" + testMap.get(key));
         }
 
         //利用泛型来遍历map
-        Set<Map.Entry<String, Object>> set = testMap.entrySet();
-        for(Map.Entry<String, Object> entry : set){
+        System.out.println("foreach by entrySet----------------");
+        for(Map.Entry<String, Object> entry : testMap.entrySet()){
             System.out.println(entry.getKey() + ":" + entry.getValue());
         }
+
+        //用lamda表达式进行遍历
+        System.out.println("lamda forEach----------------");
+        testMap.forEach((k,v) -> System.out.println(k + ":" + v));
     }
 }

@@ -20,17 +20,17 @@ public class Sort {
 //		int[] array = {3,1,5,2};
 		System.out.println("before sorted:\n" + Arrays.toString(array));
 //		bullmSort(array);
-//		selectSort(array);
+		selectSort(array);
 //		insertSort(array);
-		shellSort(array);
+//		shellSort(array);
 //		mergeSort(array, 0, array.length - 1);
 //		quickSort(array, 0, array.length - 1);
 //		radixSort(array);
 //		heapSort(array);
 		System.out.println("after sorted:\n" + Arrays.toString(array));
 	}
-	
-	
+
+
 	/**
 	 * 冒泡排序。
 	 * 外层循环遍历N-1次，每次循环结束后把最大的数冒泡到最后一个位置。内层循环比较相邻的两个数，如果前面的数大于后面的数，交换位置
@@ -47,16 +47,16 @@ public class Sort {
 					array[j] = array[j+1];
 					array[j+1] = temp;
 				}
-			} 
+			}
 			//用来看整个排序的过程
 			System.out.println(Arrays.toString(array));
 		}
 	}
-	
+
 	/**
 	 * 选择排序
 	 * 在要排序的一组数中，选出最小的一个数与第一个位置的数交换；然后在剩下的数当中再找最小的与第二个位置的数交换，如此循环到倒数第二个数和最后一个数比较为止。
-	 * 选择排序是不稳定的排序方法（比如序列[5， 5， 3]第一次就将第一个[5]与[3]交换，导致第一个5挪动到第二个5后面）。算法复杂度O(n2)--[n的平方] 
+	 * 选择排序是不稳定的排序方法（比如序列[5， 5， 3]第一次就将第一个[5]与[3]交换，导致第一个5挪动到第二个5后面）。算法复杂度O(n2)--[n的平方]
 	 * @param array
 	 */
 	public static void selectSort(int[] array) {
@@ -69,26 +69,25 @@ public class Sort {
 					array[i] = array[j];
 					array[j] = temp;
 				}
-			}  
+			}
 			//用来看整个排序的过程
 			System.out.println(Arrays.toString(array));
 		}
 	}
-	
+
 	/**
 	 * 直接插入排序
 	 * 在要排序的一组数中，假设前面(n-1) [n>=2] 个数已经是排好顺序的，现在要把第n个数插到前面的有序数中，使得这n个数也是排好顺序的。如此反复循环，直到全部排好顺序。
-	 * 直接插入排序是稳定的。算法时间复杂度O(n2)--[n的平方] 
+	 * 直接插入排序是稳定的。算法时间复杂度O(n2)--[n的平方]
 	 * @param array
 	 */
 	public static void insertSort(int[] array) {
 		System.out.println("******insertSortting******");
 		int length = array.length;
-		int key = 0;
 		int j = 0;
 		for(int i = 1;i < length;i++){
 			//需要插入的array[i]元素，默认前面的array[0]——array[i-1]都已经排序好了
-			key = array[i];
+			int key = array[i];
 			//遍历前面排序好的array[j]——array[0]，如果发现key < a[j]，那么将a[j]后移一位到a[j+1],到最后会腾出一个位置。
             //这个地方巧妙的从排序好最大的也就是数组最末尾的数开始遍历。可以直接实现插入数组后后面数据都要移位的操作。如果从0开始遍历，处理起来就麻烦一些
 			for(j = i - 1;j >= 0 && key < array[j];j--){
@@ -100,12 +99,12 @@ public class Sort {
 
 		}
 	}
-	
+
 	/**
 	 * shell排序
 	 * 在直接插入排序算法中，每次插入一个数，使有序序列只增加1个节点，并且对插入下一个数没有提供任何帮助。
 	 * 如果比较相隔较远距离（称为增量）的数，使得数移动时能跨过多个元素，则进行一次比较就可能消除多个元素交换。
-	 * 
+	 *
 	 * 算法先将要排序的一组数按某个增量d分成若干组，每组中记录的下标相差d.
 	 * 对每组中全部元素进行排序，然后再用一个较小的增量对它进行，在每组中再进行排序。当增量减到1时，整个要排序的数被分成一组，排序完成。
 	 * 希尔排序是不稳定的。时间复杂度为O(n1.5)--[n的1.5次方]
@@ -142,12 +141,12 @@ public class Sort {
      * @param right
      */
     public static void mergeSort(int[] array, int left, int right) {
-        if(left<right){
+        if(left < right){
             int middle = (left + right) / 2;
             //对左边进行递归
             mergeSort(array, left, middle);
             //对右边进行递归
-            mergeSort(array, middle+1, right);
+            mergeSort(array, middle + 1, right);
             //合并
             merge(array, left, middle, right);
         }
@@ -189,7 +188,7 @@ public class Sort {
         //打印每次分区后的结果
         System.out.println(Arrays.toString(array));
     }
-	
+
 	/**
 	 * 快速排序
 	 * 选择一个基准元素,通常选择第一个元素或者最后一个元素,通过一趟扫描，将待排序列分成两部分,一部分比基准元素小,
@@ -265,7 +264,7 @@ public class Sort {
     			max = array[i];
     		}
     	}
-    	
+
     	System.out.println("the max=" + max);
     	//确定排序的趟数(数组最大数的位数)。
     	int times = 0;
@@ -273,7 +272,7 @@ public class Sort {
     		max = max / 10;
     		times++;
     	}
-    	
+
     	//构建一个长度为10数组，数组里面的元素为整形数组类型，在比较第N位数时 用来存放【0-9】每个数字出现过的array[i]。
     	//比如 比较个位数时：list[5]={45,5，155}，也就是所有个位数为5的元素
     	List<ArrayList<Integer>> list= new ArrayList<ArrayList<Integer>>();
@@ -281,7 +280,7 @@ public class Sort {
     		ArrayList<Integer> queue = new ArrayList<Integer>();
     		list.add(queue);
     	}
-    	
+
     	//进行times次的分配和收集。从个位开始，一直到最后一位
     	for(int i = 0;i < times;i++){
     		//对数组所有的元素进行分配
@@ -293,7 +292,7 @@ public class Sort {
     			queue1.add(array[j]);
     			list.set(x, queue1);
     		}
-    		
+
     		//新的元素下标
     		int count = 0;
     		//重新收集元素
@@ -309,7 +308,7 @@ public class Sort {
     		System.out.println(Arrays.toString(array));
     	}
     }
-    
+
     /**
      * 堆排序
      * 开始时把要排序的数的序列看作是一棵顺序存储的二叉树，调整它们的存储序，使之成为一个 堆，这时堆的根节点的数最大。
@@ -317,23 +316,23 @@ public class Sort {
      * @param array
      */
     public static void heapSort(int array[]) {
-    	//循环建堆  
+    	//循环建堆
 		for(int i = 0;i < array.length - 1;i++){
 			//建堆
 			buildMaxHeap(array, array.length - 1 - i);
-			System.out.println("Build Heap[" + (i+1) + "]:" + Arrays.toString(array));  
-			//交换堆顶和最后一个元素  
+			System.out.println("Build Heap[" + (i+1) + "]:" + Arrays.toString(array));
+			//交换堆顶和最后一个元素
 			swap(array, 0, array.length - 1 - i);
 		}
 	}
-    
+
     /**
      * 构建大顶堆
      * @param array
      * @param lastIndex
      */
     private static void buildMaxHeap(int[] array, int lastIndex){
-         //从lastIndex处节点（最后一个节点）的父节点开始 
+         //从lastIndex处节点（最后一个节点）的父节点开始
         for(int i = (lastIndex - 1) / 2;i >= 0;i--){
             //k保存正在判断的节点 
             int k = i;
@@ -342,35 +341,35 @@ public class Sort {
                 //k节点的左子节点的索引 
                 int biggerIndex = 2 * k + 1;
                 //如果biggerIndex小于lastIndex，即biggerIndex+1代表的k节点的右子节点存在
-                if(biggerIndex < lastIndex){  
+                if(biggerIndex < lastIndex){
                     //若果右子节点的值较大  
-                    if(array[biggerIndex] < array[biggerIndex + 1]){  
+                    if(array[biggerIndex] < array[biggerIndex + 1]){
                         //biggerIndex总是记录较大子节点的索引  
-                        biggerIndex++;  
-                    }  
-                }  
+                        biggerIndex++;
+                    }
+                }
                 //如果k节点的值小于其较大的子节点的值  
-                if(array[k] < array[biggerIndex]){  
+                if(array[k] < array[biggerIndex]){
                     //交换他们  
-                    swap(array,k,biggerIndex);  
+                    swap(array,k,biggerIndex);
                     //将biggerIndex赋予k，开始while循环的下一次循环，重新保证k节点的值大于其左右子节点的值  
-                    k = biggerIndex;  
-                }else{  
-                    break;  
-                }  
+                    k = biggerIndex;
+                }else{
+                    break;
+                }
             }
         }
     }
-    
+
     /**
      * 对数组array[i] 和 array[j]进行交换
      * @param array
      * @param i
      * @param j
      */
-    private static void swap(int[] array, int i, int j) {  
-        int tmp=array[i];  
-        array[i]=array[j];  
-        array[j]=tmp;  
+    private static void swap(int[] array, int i, int j) {
+        int tmp=array[i];
+        array[i]=array[j];
+        array[j]=tmp;
     }
 }

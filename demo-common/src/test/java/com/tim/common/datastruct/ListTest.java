@@ -16,6 +16,7 @@ import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.Vector;
+import java.util.stream.Collectors;
 
 /**
  * Created by tim.syh on 2017/1/8.
@@ -91,7 +92,7 @@ public class ListTest extends InitTestData {
         //这样子就抛异常了。
         for(Integer integer : integerArrayList) {
             integerArrayList.add(5); //add也会抛出异常
-            integerArrayList.remove(5); //remove也会抛出异常
+//            integerArrayList.remove(5); //remove也会抛出异常
         }
         System.out.println("old list:" + integerArrayList);
 
@@ -111,18 +112,24 @@ public class ListTest extends InitTestData {
         persons.add(p1);
         persons.add(p2);
         persons.add(p3);
-        //这种方式走不通，java的ArrayList使用迭代器有问题。
+        //【错误移除元素方法】有时候会抛异常，参见上面一个测试用例
         for(Person person : persons){
-            if(person.getName().equals("lily")){
+            if(person.getName().equals("tim")){
                 persons.remove(person);
             }
         }
-//        for(int i = persons.size() - 1; i >= 0;i--){
+
+//        //【正确移除元素方法一】
+//        for(int i = 0; i < persons.size(); i++){
 //            Person person = persons.get(i);
-//            if(person.getName().equals("lily")){
+//            if(person.getName().equals("tim")){
 //                persons.remove(person);
 //            }
 //        }
+
+//        //【正确移除元素方法二】
+//        List<Person> newPersons = persons.stream().filter(person -> !person.getName().equals("tim")).collect(Collectors.toList());
+//        System.out.println(newPersons);
 
         System.out.println(persons);
     }
@@ -164,8 +171,10 @@ public class ListTest extends InitTestData {
             studentMap.put(student.getName(), student.toString());
         }
 
-        System.out.println("OK");
+        Map<String, String> map1 = testStudentList.stream().collect(Collectors.toMap(Student::getName, Student::toString));
+        Map<String, String> map2 = testStudentList.stream().collect(Collectors.toMap(s -> s.getName(), s -> s.toString()));
 
+        System.out.println("OK");
     }
 
 }
