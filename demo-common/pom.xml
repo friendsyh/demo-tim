@@ -114,6 +114,13 @@
             <artifactId>reflections</artifactId>
         </dependency>
 
+        <!-- 中文分词包 -->
+        <dependency>
+            <groupId>com.hankcs</groupId>
+            <artifactId>hanlp</artifactId>
+            <version>portable-1.7.8</version>
+        </dependency>
+
         <!-- 未来集市的commom工具包 -->
 <!--        <dependency>-->
 <!--            <groupId>com.doubo.doubo-parent</groupId>-->

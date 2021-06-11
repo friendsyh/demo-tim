@@ -87,6 +87,8 @@ public class StreamLamdaTest extends InitTestData {
         List<Student> rlt6 =
         testStudentList.stream().sorted(Comparator.comparing(Student::getAge, Comparator.reverseOrder()).thenComparing(Comparator.comparing(Student::getSchoolName, Comparator.reverseOrder()))).collect(Collectors.toList());
 
+        List<Student> rlt7 = testStudentList.stream().sorted((s1,s2) -> s2.getName().length() - s1.getName().length()).collect(Collectors.toList());
+
         System.out.println("OK");
     }
 
@@ -265,6 +267,13 @@ public class StreamLamdaTest extends InitTestData {
         int maxAge  = testStudentList.stream().map(Student::getAge).reduce(Integer.MIN_VALUE, Integer::max);
 
         System.out.println("OK");
+    }
+
+    @Test
+    public void testJoinString() throws Exception {
+        String columns = testStudentList.stream().map(Student::getName).collect(Collectors.joining(","));
+
+        System.out.println(columns);
     }
 
 

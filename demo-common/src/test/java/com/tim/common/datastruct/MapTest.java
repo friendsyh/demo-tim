@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 /**
  * Created by tim.syh on 2017/1/8.
@@ -36,7 +37,7 @@ public class MapTest extends InitTestData {
 
     @Test
     public void testInput() throws Exception {
-        HashMap<String, String> hashMap = new HashMap<>();
+        Map<String, String> hashMap = new HashMap<>();
         //map的key值相同的时候会出现覆盖的情况
         hashMap.put("tim", "suyanghua");
         hashMap.put("tim", "liaowanying");
@@ -58,7 +59,7 @@ public class MapTest extends InitTestData {
             System.out.println(key + " =" + testMap.get(key));
         }
 
-        //利用泛型来遍历map
+        //利用Entry来遍历map
         System.out.println("foreach by entrySet----------------");
         for(Map.Entry<String, Object> entry : testMap.entrySet()){
             System.out.println(entry.getKey() + ":" + entry.getValue());
@@ -67,5 +68,30 @@ public class MapTest extends InitTestData {
         //用lamda表达式进行遍历
         System.out.println("lamda forEach----------------");
         testMap.forEach((k,v) -> System.out.println(k + ":" + v));
+    }
+
+    @Test
+    public void testTreeMap() throws Exception {
+        //默认treeMap是按照key从小到大的顺序
+//        Map<Long, String> treeMap = new TreeMap<>();
+        //新建的treeMap是按照key从大到小的顺序
+        Map<Integer, String> treeMap = new TreeMap<>((v1, v2) -> v2 - v1);
+        //map的key值相同的时候会出现覆盖的情况
+        treeMap.put(32, "suyanghua");
+        treeMap.put(18, "liaowanying");
+        treeMap.put(2, "susu");
+        treeMap.put(90, "yeye");
+        treeMap.put(185214, "yeye");
+
+        //打印的时候发现时按照年龄进行从小到大排序好的
+        System.out.println(treeMap);
+        //打印的时候发现时按照年龄进行从小到大排序好的
+        for(Map.Entry<Integer, String> entry : treeMap.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
+        }
+
+        //会自动把18转成一个对象
+        System.out.println(treeMap.get(18));
+        System.out.println(treeMap.get(185214));
     }
 }

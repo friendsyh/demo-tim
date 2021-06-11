@@ -78,6 +78,9 @@ public class StringTest extends InitTestData {
         String ss2 = "/tmp/yuxiang/order_processed_100w.csv";
         System.out.println(ss2.substring(ss2.lastIndexOf("/") + 1, ss2.indexOf(".")));
 //        System.out.println(ss2.substring(ss2.lastIndexOf("/")));
+
+        System.out.println(ss2.replace(".csv", ""));
+        System.out.println("OK");
     }
 
     @Test
