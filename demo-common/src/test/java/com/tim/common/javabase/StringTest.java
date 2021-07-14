@@ -83,6 +83,10 @@ public class StringTest extends InitTestData {
         System.out.println("OK");
     }
 
+    /**
+     * 获取引号里面的内容
+     * @throws Exception
+     */
     @Test
     public void getYinHao() throws Exception {
         String str="SPARK_EXECUTOR_CORES=\"4\" #Number of cores for the workers (Default: 1).";
@@ -110,7 +114,7 @@ public class StringTest extends InitTestData {
         String result = "(" + date.substring(0, 4) + "年" + date.substring(4, 6) + "月" + date.substring(6,8) + "日)";
         System.out.println(result);
         System.out.println(System.currentTimeMillis());
-        System.out.println(date.substring(3,date.length()));
+        System.out.println(date.substring(3));
     }
 
     @Test

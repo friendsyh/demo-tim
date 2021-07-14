@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
  */
 public class JaccardSimilaritySpecialCut implements SimilarityScore {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(JaccardSimilaritySpecialCut.class);
+    protected static final Logger logger = LoggerFactory.getLogger(JaccardSimilaritySpecialCut.class);
 
     private static final Pattern pattern = Pattern.compile("[`~!@#$%^&*()+=|{}':;',\\\\\\\\[\\\\\\\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]");
 
@@ -73,10 +73,10 @@ public class JaccardSimilaritySpecialCut implements SimilarityScore {
         int unionSize = unionSet.size();
         //相似度分值
         double score = intersectionSize / (double) unionSize;
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("交集的大小：" + intersectionSize);
-            LOGGER.debug("并集的大小：" + unionSize);
-            LOGGER.debug("相似度分值=" + intersectionSize + "/(double)" + unionSize + "=" + score);
+        if (logger.isDebugEnabled()) {
+            logger.debug("交集的大小：" + intersectionSize);
+            logger.debug("并集的大小：" + unionSize);
+            logger.debug("相似度分值=" + intersectionSize + "/(double)" + unionSize + "=" + score);
         }
         return score;
     }

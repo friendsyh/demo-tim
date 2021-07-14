@@ -56,14 +56,6 @@ public class InitTestData {
 
     public void initObject(){
         testString = "this is a test string";
-
-        testMap = Maps.newHashMap();
-        testMap.put("nullKey", null);
-        testMap.put("emptyObjKey", new Object());
-        testMap.put("stringKey", "value1");
-        testMap.put("objKey", perosn);
-        testMap.put("listObjKey", testStudentList);
-
         testStringList = new ArrayList<>();
         testStringList.add("suyanghua");
         testStringList.add("lily");
@@ -92,6 +84,13 @@ public class InitTestData {
         teacher = new Teacher("董新汉院长", 50, "湖南师范大学", testStudentList, point);
 
         resultDO = ResultDO.successResult(point);
+
+        testMap = Maps.newHashMap();
+        testMap.put("nullKey", null);
+        testMap.put("emptyObjKey", new Object());
+        testMap.put("stringKey", "value1");
+        testMap.put("objKey", perosn);
+        testMap.put("listObjKey", testStudentList);
 
         System.out.println("***************************************************");
         System.out.println("**********init test data success!!!!!!!!!*********");

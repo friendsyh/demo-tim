@@ -4,16 +4,19 @@ import com.tim.common.pojo.InitTestData;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 
 /**
  * Created by tim.syh on 2017/1/8.
  */
 public class MapTest extends InitTestData {
+
+    private static final Logger logger = LoggerFactory.getLogger(MapTest.class);
 
     @Before
     public void init(){
@@ -33,6 +36,11 @@ public class MapTest extends InitTestData {
         }
 
 //        testMap.get("aaa") = null;  //编译报错。java容器里面的值是引用，不能复制了
+    }
+
+    @Test
+    public void loggerTest() throws Exception {
+        logger.info("rlt:{}", testMap);
     }
 
     @Test

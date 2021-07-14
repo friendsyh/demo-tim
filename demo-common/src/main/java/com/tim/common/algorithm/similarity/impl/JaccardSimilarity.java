@@ -24,7 +24,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
  */
 public class JaccardSimilarity implements SimilarityScore {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(JaccardSimilarity.class);
+    protected static final Logger logger = LoggerFactory.getLogger(JaccardSimilarity.class);
 
     @Override
     public double compare(String left, String right) {
@@ -68,10 +68,10 @@ public class JaccardSimilarity implements SimilarityScore {
         int unionSize = unionSet.size();
         //相似度分值
         double score = intersectionSize / (double) unionSize;
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("交集的大小：" + intersectionSize);
-            LOGGER.debug("并集的大小：" + unionSize);
-            LOGGER.debug("相似度分值=" + intersectionSize + "/(double)" + unionSize + "=" + score);
+        if (logger.isDebugEnabled()) {
+            logger.debug("交集的大小：" + intersectionSize);
+            logger.debug("并集的大小：" + unionSize);
+            logger.debug("相似度分值=" + intersectionSize + "/(double)" + unionSize + "=" + score);
         }
         return score;
     }

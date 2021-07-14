@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class CosineSimilarity implements SimilarityScore {
 
-    protected static final Logger LOGGER = LoggerFactory.getLogger(CosineSimilarity.class);
+    protected static final Logger logger = LoggerFactory.getLogger(CosineSimilarity.class);
 
     @Override
     public double compare(String left, String right) {
@@ -134,9 +134,9 @@ public class CosineSimilarity implements SimilarityScore {
         Map<String, AtomicInteger> frequency2 = getFrequency(words2);
 
         //如果是DEBUG模式输出词频统计信息
-        if (LOGGER.isDebugEnabled()) {
-            LOGGER.debug("Word frequency statistics1：\n{}", getWordsFrequencyString(frequency1));
-            LOGGER.debug("Word frequency statistics2：\n{}", getWordsFrequencyString(frequency2));
+        if (logger.isDebugEnabled()) {
+            logger.debug("Word frequency statistics1：\n{}", getWordsFrequencyString(frequency1));
+            logger.debug("Word frequency statistics2：\n{}", getWordsFrequencyString(frequency2));
         }
 
         // 标注权重（该词出现的次数）
@@ -184,7 +184,7 @@ public class CosineSimilarity implements SimilarityScore {
             if (i.getWeight() != null) {
                 weightMap.put(i.getName(), i.getWeight());
             } else {
-                LOGGER.error("no word weight info:" + i.getName());
+                logger.error("no word weight info:" + i.getName());
             }
         });
         return weightMap;

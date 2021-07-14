@@ -61,7 +61,11 @@ public class BasicDataTypeTest {
 
     @Test
     public void testBigDecimal() throws Exception {
+        //保留2位有效数字
         System.out.println(BigDecimal.valueOf((float) 2 / 64).setScale(2, BigDecimal.ROUND_UP).doubleValue());
+
+        //测试被除数为0的情况。抛出NumberFormatException异常
+        System.out.println(BigDecimal.valueOf((float) 15l / 0l).setScale(2, BigDecimal.ROUND_UP).doubleValue());
     }
 
     @Test
