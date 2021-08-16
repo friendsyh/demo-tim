@@ -16,7 +16,7 @@ public enum LoginPageEnum {
     private int code;
     private String desc;
 
-    private LoginPageEnum(int code, String desc){
+    LoginPageEnum(int code, String desc){
         this.code = code;
         this.desc = desc;
     }
