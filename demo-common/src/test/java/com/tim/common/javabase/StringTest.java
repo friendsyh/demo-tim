@@ -30,6 +30,20 @@ public class StringTest extends InitTestData {
     }
 
     @Test
+    public void testSplit2() throws Exception {
+        String string = "96454|91372";
+        String[] array = string.split("\\|");
+        System.out.println("OK");
+    }
+
+    @Test
+    public void testSplit3() throws Exception {
+        String string = "t0.citycompany = '成都公司', t0.icpprojectcode = 'G0804'";
+        String[] array = string.split("\\.");
+        System.out.println("OK");
+    }
+
+    @Test
     public void testStringAppend() throws Exception {
         String ss1 = "user_info.t0.name.user_info";
         String[] array = ss1.split("\\.");
