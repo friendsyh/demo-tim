@@ -20,7 +20,7 @@
     <properties>
         <demo.version>1.0-SNAPSHOT</demo.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.2.6.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <velocity.version>1.7</velocity.version>
         <velocity.tools.version>2.0</velocity.tools.version>
         <slf4j.version>1.7.21</slf4j.version>
